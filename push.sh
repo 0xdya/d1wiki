@@ -1,4 +1,4 @@
-git add .
+git add .  >/dev/null 2>&1
 read -p "commit: " commit
-git commit -m "$commit"
-git push origin main
+git commit -m "$commit"  >/dev/null 2>&1
+git push origin main  >/dev/null 2>&1

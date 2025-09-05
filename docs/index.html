@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title> </title>
+  <title>d1wiki</title>
   <meta name="description" content="bio">
   <meta name="keywords" content="key">
   <meta name="author" content="0xdya">
@@ -21,7 +21,61 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">D1Wiki</a>
+                <button class="theme-btn" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Main -->
+    <main class="main">
+        <div class="container">
+            <h1 class="title">D1Wiki</h1>
+            <p class="subtitle">قاعدة معلومات عربية مفتوحة المصدر.</p>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="ابحث في الشروحات...">
+                <button class="search-btn">🔍</button>
+            </div>
+
+            <!-- Latest Articles -->
+            <section class="articles">
+                <h2 class="section-title">آخر الشروحات</h2>
+                <div class="articles-grid">
+                    <a href="#" class="article">
+                        <div class="article-title"> تجربة .</div>
+                        <div class="article-meta">
+                            <div> من طرف ضياء </div>
+                            <div>•</div>
+                            <div class="article-mt">منذ يومين</div>
+                        </div> 
+                    </a>
+
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">حول</a>
+                <a href="#">المساهمة</a>
+                <a href="#">GitHub</a>
+                <a href="#">تواصل</a>
+            </div>
+            <div class="copyright">© 2025 D1Wiki</div>
+        </div>
+    </footer>
   <script src="js/script.js"></script>
 </body>
 </html>
