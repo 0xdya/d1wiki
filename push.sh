@@ -1,4 +1,4 @@
 git add .
-read -p "commit" commit
+read -p "commit: " commit
 git commit -m "$commit"
 git push origin main
