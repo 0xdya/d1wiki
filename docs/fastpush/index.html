@@ -1,51 +1,87 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="system">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastPush - دليل التثبيت والاستعمال</title>
   <link href="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.css" rel="stylesheet" />
   <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif; line-height:1.6; color:#ededed; background:#000}
-    .container {max-width:700px; margin:0 auto; padding:40px 20px; background:#222; min-height:100vh; box-shadow:0 0 8px rgba(0,0,0,0.05);}
-    .header {text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:1px solid #eaecef;}
-    .header h1 {font-size:2.2rem; font-weight:800; margin-bottom:12px;}
-    .header p {font-size:1rem; color:#555;}
-    .github-link {display:inline-flex; align-items:center; gap:6px; background:#000; color:#fff; text-decoration:none; padding:8px 16px; border-radius:6px; font-size:14px; transition:opacity 0.2s;}
-    .github-link:hover {opacity:0.8;}
-    h2 {font-size:1.6rem; margin:30px 0 16px; border-bottom:2px solid #000; padding-bottom:6px;}
-    .step {margin-bottom:20px;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root {
+      --bg:#ffffff;
+      --text:#222;
+      --subtext:#555;
+      --card:#f9f9f9;
+      --border:#ddd;
+      --link:#0366d6;
+      --code-bg:#f6f8fa;
+      --terminal-bg:#000;
+      --terminal-text:#fff;
+    }
+    [data-theme="dark"] {
+      --bg:#000;
+      --text:#ededed;
+      --subtext:#aaa;
+      --card:#222;
+      --border:#333;
+      --link:#58a6ff;
+      --code-bg:#1e1e1e;
+      --terminal-bg:#000;
+      --terminal-text:#fff;
+    }
+    body {font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif;
+      line-height:1.6;background:var(--bg);color:var(--text);}
+    .container{max-width:700px;margin:0 auto;padding:40px 20px;background:var(--card);
+      min-height:100vh;box-shadow:0 0 8px rgba(0,0,0,0.05);}
+    .header{text-align:center;margin-bottom:40px;padding:12px 0;}
+    .header h1{font-size:2.2rem;font-weight:800;margin-bottom:12px;}
+    .header p{font-size:1rem;color:var(--subtext);}
+    .github-link{display:inline-flex;align-items:center;gap:6px;background:var(--text);color:var(--bg);
+      text-decoration:none;padding:8px 16px;border-radius:6px;font-size:14px;transition:opacity 0.2s;}
+    .github-link:hover{opacity:0.8;}
+    h2{font-size:1.6rem;margin:30px 0 16px;border-bottom:2px solid var(--border);padding-bottom:6px;}
+    .step{margin-bottom:20px;}
     .step-title{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
-    .step-number {background:#000;color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;}
-    .code {background:#f6f8fa;border:1px solid #e1e8ed;border-radius:6px;padding:12px;font-family:'SF Mono',monospace;font-size:13px;overflow-x:auto;margin:12px 0;cursor:pointer;position:relative;direction:ltr}
-    .code:hover {background:#eef6ff;}
-    .code.terminal {background:#000;color:#fff;border:none;direction: ltr;}
-    .code.terminal::before {content:"$ ";color:#0f0;}
-    .copy-label {position:absolute;top:6px;left:6px;background:#000;color:#fff;font-size:11px;padding:2px 6px;border-radius:3px;opacity:0;transition:opacity 0.2s;}
-    .code:hover .copy-label {opacity:1;}
-    .note {background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:12px;margin:16px 0;color:#075985;}
-    .warning {background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:12px;margin:16px 0;color:#92400e;}
-    .footer {margin-top:40px;padding-top:20px;border-top:1px solid #eaecef;text-align:center;color:#555;font-size:14px;}
-    .footer-links {display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:20px 0;}
-    .footer-link {color:#000;text-decoration:none;padding:6px 12px;border:1px solid #ddd;border-radius:6px;font-size:13px;transition:all 0.2s;}
-    .footer-link:hover {background:#f6f8fa;}
+    .step-number{background:var(--text);color:var(--bg);width:26px;height:26px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;font-size:13px;}
+    .code{background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:12px;
+      font-family:'SF Mono',monospace;font-size:13px;overflow-x:auto;margin:12px 0;cursor:pointer;
+      position:relative;direction:ltr}
+    .code:hover{background:#eef6ff;}
+    .code.terminal{cursor:none;background:var(--terminal-bg);color:var(--terminal-text);border:none;}
+    .code.terminal::before{content:"$ ";color:#0f0;}
+    .copy-label{font-size:1rem !important;position:absolute;top:6px;right:6px;background:var(--text);color:var(--bg);
+      padding:4px 12px;border-radius:3px;opacity:0;transition:opacity 0.2s;cursor:grap}
+    .code:hover .copy-label{opacity:1;}
+    .note{background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:12px;margin:16px 0;color:#075985;}
+    .warning{background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:12px;margin:16px 0;color:#92400e;}
+    .footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);text-align:center;color:var(--subtext);font-size:14px;}
+    .footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:20px 0;}
+    .footer-link{color:var(--text);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;
+      font-size:13px;transition:all 0.2s;}
+    .footer-link:hover{background:var(--code-bg);}
+    .theme-switch{position:fixed;top:10px;left:10px;z-index:1000;}
+    select{padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--card);color:var(--text);}
     @media(max-width:768px){.container{padding:20px;} .header h1{font-size:1.8rem;} .code{font-size:12px;}}
   </style>
 </head>
 <body>
 
+  <div class="theme-switch">
+    <select id="theme-select">
+      <option value="system">النظام</option>
+      <option value="light">فاتح</option>
+      <option value="dark">داكن</option>
+    </select>
+  </div>
 
-  
   <a href="https://github.com/0xdya/fastpush" target="_blank" id="fork-corner" class="fork-corner fc-size-small fc-pos-tr fc-animate-grow fc-theme-github"></a>
-  
+
   <div class="container">
     <div class="header">
       <h1>FastPush</h1>
-      <p>أداة Bash مفتوحة المصدر لربط ورفع ملفات مشروعك إلى GitHub</p>
-      <a class="github-link" href="https://github.com/0xdya/fastpush" target="_blank">⭐ زر المشروع على GitHub</a>
+      <p>أداة Bash مفتوحة المصدر لربط ورفع ملفات مشروعك إلى قيتهاب بسهولة</p>
     </div>
-
     <h2>التثبيت</h2>
     <div class="step">
       <div class="step-title"><div class="step-number">1</div><strong>تحميل الملف:</strong></div>
@@ -57,9 +93,7 @@
     </div>
 
     <h2>الاستعمال</h2>
-    <p> الامر الاساسي:</p>
-    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh</div>
-    <p> اوامر اضافية مفيدة:</p>
+    <p>الأوامر الأساسية:</p>
     <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh -m "رسالة الكوميت"</div>
     <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --init</div>
     <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --help</div>
@@ -150,7 +184,7 @@ esac</pre></div>
 -->
     <h2>ادعم المشروع</h2>
     <div class="footer-links">
-      <a href="https://github.com/0xdya/fastpush" class="footer-link" target="_blank">المشروع على GitHub</a>
+      <a href="https://github.com/0xdya/fastpush" class="footer-link" target="_blank">ضع نجمة على github ⭐</a>
       <a href="https://github.com/0xdya/fastpush/issues" class="footer-link" target="_blank">الإبلاغ عن خطأ</a>
       <a href="https://github.com/0xdya/fastpush/fork" class="footer-link" target="_blank">المساهمة</a>
     </div>
@@ -161,6 +195,7 @@ esac</pre></div>
   </div>
 
   <script>
+    // نسخ الكود
     document.addEventListener('DOMContentLoaded', function() {
       const codeBlocks = document.querySelectorAll('.code');
       codeBlocks.forEach(block => {
@@ -168,11 +203,27 @@ esac</pre></div>
           let text = this.textContent.replace(/نسخ/, '').trim();
           if (this.classList.contains('terminal')) text = text.replace(/^\$\s*/, '');
           navigator.clipboard.writeText(text).then(() => {
-            this.style.backgroundColor = '#e6ffed';
+            this.style.backgroundColor = 'dark';
             setTimeout(()=>{this.style.backgroundColor='';},300);
           });
         });
       });
+
+      // تبديل الثيم
+      const select = document.getElementById('theme-select');
+      function applyTheme(theme){
+        if(theme==='system'){
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark?'dark':'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        localStorage.setItem('theme', theme);
+      }
+      select.addEventListener('change', ()=>applyTheme(select.value));
+      const saved = localStorage.getItem('theme') || 'system';
+      select.value = saved;
+      applyTheme(saved);
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.js" defer></script>
