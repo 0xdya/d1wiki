@@ -93,7 +93,9 @@
     </div>
 
     <h2>الاستعمال</h2>
-    <p>الأوامر الأساسية:</p>
+    <p>الامر الاساسي</p>
+    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh</div>
+    <p>اوامر اخرى مفيدة:</p>
     <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh -m "رسالة الكوميت"</div>
     <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --init</div>
     <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --help</div>
@@ -195,7 +197,6 @@ esac</pre></div>
   </div>
 
   <script>
-    // نسخ الكود
     document.addEventListener('DOMContentLoaded', function() {
       const codeBlocks = document.querySelectorAll('.code');
       codeBlocks.forEach(block => {
@@ -209,7 +210,6 @@ esac</pre></div>
         });
       });
 
-      // تبديل الثيم
       const select = document.getElementById('theme-select');
       function applyTheme(theme){
         if(theme==='system'){
