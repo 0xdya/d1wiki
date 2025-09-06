@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastPush - دليل التثبيت والاستعمال</title>
+  <link href="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.css" rel="stylesheet" />
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif; line-height:1.6; color:#222; background:#fafafa;}
+    .container {max-width:700px; margin:0 auto; padding:40px 20px; background:#fff; min-height:100vh; box-shadow:0 0 8px rgba(0,0,0,0.05);}
+    .header {text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:1px solid #eaecef;}
+    .header h1 {font-size:2.2rem; font-weight:800; margin-bottom:12px;}
+    .header p {font-size:1rem; color:#555;}
+    .github-link {display:inline-flex; align-items:center; gap:6px; background:#000; color:#fff; text-decoration:none; padding:8px 16px; border-radius:6px; font-size:14px; transition:opacity 0.2s;}
+    .github-link:hover {opacity:0.8;}
+    h2 {font-size:1.6rem; margin:30px 0 16px; border-bottom:2px solid #000; padding-bottom:6px;}
+    .step {margin-bottom:20px;}
+    .step-title{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
+    .step-number {background:#000;color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;}
+    .code {background:#f6f8fa;border:1px solid #e1e8ed;border-radius:6px;padding:12px;font-family:'SF Mono',monospace;font-size:13px;overflow-x:auto;margin:12px 0;cursor:pointer;position:relative;direction:ltr}
+    .code:hover {background:#eef6ff;}
+    .code.terminal {background:#000;color:#fff;border:none;direction: ltr;}
+    .code.terminal::before {content:"$ ";color:#0f0;}
+    .copy-label {position:absolute;top:6px;left:6px;background:#000;color:#fff;font-size:11px;padding:2px 6px;border-radius:3px;opacity:0;transition:opacity 0.2s;}
+    .code:hover .copy-label {opacity:1;}
+    .note {background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:12px;margin:16px 0;color:#075985;}
+    .warning {background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:12px;margin:16px 0;color:#92400e;}
+    .footer {margin-top:40px;padding-top:20px;border-top:1px solid #eaecef;text-align:center;color:#555;font-size:14px;}
+    .footer-links {display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:20px 0;}
+    .footer-link {color:#000;text-decoration:none;padding:6px 12px;border:1px solid #ddd;border-radius:6px;font-size:13px;transition:all 0.2s;}
+    .footer-link:hover {background:#f6f8fa;}
+    @media(max-width:768px){.container{padding:20px;} .header h1{font-size:1.8rem;} .code{font-size:12px;}}
+  </style>
+</head>
+<body>
+  <a href="https://github.com/0xdya/fastpush" target="_blank" id="fork-corner" class="fork-corner fc-size-small fc-pos-tr fc-animate-grow fc-theme-github"></a>
+  
+  <div class="container">
+    <div class="header">
+      <h1>FastPush</h1>
+      <p>أداة Bash مفتوحة المصدر لتسريع رفع ملفات مشروعك إلى GitHub</p>
+      <a class="github-link" href="https://github.com/0xdya/fastpush" target="_blank">⭐ زر المشروع على GitHub</a>
+    </div>
+
+    <h2>التثبيت</h2>
+    <div class="step">
+      <div class="step-title"><div class="step-number">1</div><strong>تحميل الملف:</strong></div>
+      <div class="code terminal"><span class="copy-label">نسخ</span>curl -o fastpush.sh https://raw.githubusercontent.com/0xdya/fastpush/main/fastpush.sh</div>
+    </div>
+    <div class="step">
+      <div class="step-title"><div class="step-number">2</div><strong>إعطاء الصلاحيات:</strong></div>
+      <div class="code terminal"><span class="copy-label">نسخ</span>chmod +x fastpush.sh</div>
+    </div>
+
+    <h2>الاستعمال</h2>
+    <p> الامر الاساسي:</p>
+    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh</div>
+    <p> اوامر اضافية مفيدة:</p>
+    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh -m "رسالة الكوميت"</div>
+    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --init</div>
+    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --help</div>
+
+    <p>- <code>-m</code> يحدد رسالة الكوميت مباشرة.<br>
+       - <code>--init</code> يهيئ مشروع جديد ويربطه بمستودع GitHub.<br>
+       - <code>--help</code> يعرض المساعدة.</p>
+
+    <div class="warning"><strong>تنويه:</strong> الأداة تضيف جميع الملفات تلقائيًا. استعمل ملف <code>.gitignore</code> لتجنب رفع ملفات غير ضرورية.</div>
+<!--
+    <h2>كود الأداة</h2>
+    <div class="code"><span class="copy-label">نسخ</span><pre>
+#!/bin/bash
+# ========== fastpush ==========
+# by @0xdya
+
+ascii_logo() {
+cat << "EOF"
+░█▀▀░█▀█░█▀▀░▀█▀░░░█▀█░█░█░█▀▀░█░█
+░█▀▀░█▀█░▀▀█░░█░░░░█▀▀░█░█░▀▀█░█▀█
+░▀░░░▀░▀░▀▀▀░░▀░░░░▀░░░▀▀▀░▀▀▀░▀░▀
+        FastPush
+EOF
+}
+
+usage() {
+  echo "الاستعمال:"
+  echo "  ./fastpush.sh -m \"رسالة الكوميت\""
+  echo "  ./fastpush.sh --init        # لتهيئة مشروع جديد"
+  echo "  ./fastpush.sh --help        # عرض هذه المساعدة"
+}
+
+check_dep() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "❌ $1 غير مثبت. ثبته أولاً."
+    exit 1
+  fi
+}
+
+check_dep git
+
+if [ $# -eq 0 ]; then
+  ascii_logo
+  usage
+  exit 0
+fi
+
+case "$1" in
+  --help)
+    usage
+    ;;
+  --init)
+    if [ -d .git ]; then
+      echo "✅ المشروع مربوط مسبقًا."
+      exit 0
+    fi
+    git init
+    read -p "ادخل رابط المستودع: " repo
+    git remote add origin "$repo"
+    read -p "اسم الفرع [main]: " branch
+    branch=${branch:-main}
+    git branch -M "$branch"
+    echo "✅ تم الربط بالفرع $branch"
+    ;;
+  -m)
+    shift
+    msg="$*"
+    if [ -z "$msg" ]; then
+      echo "❌ لم تُدخل رسالة الكوميت."
+      exit 1
+    fi
+    if git diff --cached --quiet && git diff --quiet; then
+      echo "⚠️ لا توجد تغييرات."
+      exit 0
+    fi
+    git add .
+    git commit -m "$msg" || exit 1
+    branch=$(git branch --show-current)
+    [ -z "$branch" ] && branch="main" && git branch -M "$branch"
+    git push -u origin "$branch" || exit 1
+    echo "✅ تم الرفع بنجاح."
+    ;;
+  *)
+    echo "❌ خيار غير معروف: $1"
+    usage
+    ;;
+esac</pre></div>
+-->
+    <h2>ادعم المشروع</h2>
+    <div class="footer-links">
+      <a href="https://github.com/0xdya/fastpush" class="footer-link" target="_blank">المشروع على GitHub</a>
+      <a href="https://github.com/0xdya/fastpush/issues" class="footer-link" target="_blank">الإبلاغ عن خطأ</a>
+      <a href="https://github.com/0xdya/fastpush/fork" class="footer-link" target="_blank">المساهمة</a>
+    </div>
+
+    <div class="footer">
+      <p>© 2025 FastPush - مفتوح المصدر تحت رخصة MIT</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('.code');
+      codeBlocks.forEach(block => {
+        block.addEventListener('click', function() {
+          let text = this.textContent.replace(/نسخ/, '').trim();
+          if (this.classList.contains('terminal')) text = text.replace(/^\$\s*/, '');
+          navigator.clipboard.writeText(text).then(() => {
+            this.style.backgroundColor = '#e6ffed';
+            setTimeout(()=>{this.style.backgroundColor='';},300);
+          });
+        });
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.js" defer></script>
+</body>
+</html>
