@@ -16,18 +16,22 @@
       --link:#0366d6;
       --code-bg:#f6f8fa;
       --terminal-bg:#000;
+      --terminal-bg2:#ededed;
       --terminal-text:#fff;
+      --terminal-text2:#111;
     }
     [data-theme="dark"] {
       --bg:#000;
       --text:#ededed;
       --subtext:#aaa;
-      --card:#222;
-      --border:#333;
+      --card:#111;
+      --border:#222;
       --link:#58a6ff;
       --code-bg:#1e1e1e;
       --terminal-bg:#000;
+      --terminal-bg2:#222;
       --terminal-text:#fff;
+      --terminal-text2:#fff;
     }
     body {font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif;
       line-height:1.6;background:var(--bg);color:var(--text);}
@@ -50,11 +54,12 @@
     .code:hover{background:#eef6ff;}
     .code.terminal{cursor:none;background:var(--terminal-bg);color:var(--terminal-text);border:none;}
     .code.terminal::before{content:"$ ";color:#0f0;}
+    .terminal-bg2{color: var(--terminal-text2)!important;background: var(--terminal-bg2) !important;}
     .copy-label{font-size:1rem !important;position:absolute;top:6px;right:6px;background:var(--text);color:var(--bg);
       padding:4px 12px;border-radius:3px;opacity:0;transition:opacity 0.2s;cursor:grap}
     .code:hover .copy-label{opacity:1;}
     .note{background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:12px;margin:16px 0;color:#075985;}
-    .warning{background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:12px;margin:16px 0;color:#92400e;}
+    .warning{background:var(--terminal-bg2);border:1px solid green;border-radius:6px;padding:12px;margin:16px 0;color:var(--terminal-text2);}
     .footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);text-align:center;color:var(--subtext);font-size:14px;}
     .footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:20px 0;}
     .footer-link{color:var(--text);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;
@@ -96,94 +101,15 @@
     <p>الامر الاساسي</p>
     <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh</div>
     <p>اوامر اخرى مفيدة:</p>
-    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh -m "رسالة الكوميت"</div>
-    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --init</div>
-    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh --help</div>
+    <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>./fastpush.sh -m "رسالة الكوميت"</div>
+    <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>./fastpush.sh --init</div>
+    <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>./fastpush.sh --help</div>
 
     <p>- <code>-m</code> يحدد رسالة الكوميت مباشرة.<br>
        - <code>--init</code> يهيئ مشروع جديد ويربطه بمستودع GitHub.<br>
        - <code>--help</code> يعرض المساعدة.</p>
 
     <div class="warning"><strong>تنويه:</strong> الأداة تضيف جميع الملفات تلقائيًا. استعمل ملف <code>.gitignore</code> لتجنب رفع ملفات غير ضرورية.</div>
-<!--
-    <h2>كود الأداة</h2>
-    <div class="code"><span class="copy-label">نسخ</span><pre>
-#!/bin/bash
-# ========== fastpush ==========
-# by @0xdya
-
-ascii_logo() {
-cat << "EOF"
-░█▀▀░█▀█░█▀▀░▀█▀░░░█▀█░█░█░█▀▀░█░█
-░█▀▀░█▀█░▀▀█░░█░░░░█▀▀░█░█░▀▀█░█▀█
-░▀░░░▀░▀░▀▀▀░░▀░░░░▀░░░▀▀▀░▀▀▀░▀░▀
-        FastPush
-EOF
-}
-
-usage() {
-  echo "الاستعمال:"
-  echo "  ./fastpush.sh -m \"رسالة الكوميت\""
-  echo "  ./fastpush.sh --init        # لتهيئة مشروع جديد"
-  echo "  ./fastpush.sh --help        # عرض هذه المساعدة"
-}
-
-check_dep() {
-  if ! command -v "$1" >/dev/null 2>&1; then
-    echo "❌ $1 غير مثبت. ثبته أولاً."
-    exit 1
-  fi
-}
-
-check_dep git
-
-if [ $# -eq 0 ]; then
-  ascii_logo
-  usage
-  exit 0
-fi
-
-case "$1" in
-  --help)
-    usage
-    ;;
-  --init)
-    if [ -d .git ]; then
-      echo "✅ المشروع مربوط مسبقًا."
-      exit 0
-    fi
-    git init
-    read -p "ادخل رابط المستودع: " repo
-    git remote add origin "$repo"
-    read -p "اسم الفرع [main]: " branch
-    branch=${branch:-main}
-    git branch -M "$branch"
-    echo "✅ تم الربط بالفرع $branch"
-    ;;
-  -m)
-    shift
-    msg="$*"
-    if [ -z "$msg" ]; then
-      echo "❌ لم تُدخل رسالة الكوميت."
-      exit 1
-    fi
-    if git diff --cached --quiet && git diff --quiet; then
-      echo "⚠️ لا توجد تغييرات."
-      exit 0
-    fi
-    git add .
-    git commit -m "$msg" || exit 1
-    branch=$(git branch --show-current)
-    [ -z "$branch" ] && branch="main" && git branch -M "$branch"
-    git push -u origin "$branch" || exit 1
-    echo "✅ تم الرفع بنجاح."
-    ;;
-  *)
-    echo "❌ خيار غير معروف: $1"
-    usage
-    ;;
-esac</pre></div>
--->
     <h2>ادعم المشروع</h2>
     <div class="footer-links">
       <a href="https://github.com/0xdya/fastpush" class="footer-link" target="_blank">ضع نجمة على github ⭐</a>
