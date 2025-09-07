@@ -34,12 +34,15 @@
       --terminal-text2:#fff;
     }
     body {font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif;
-      line-height:1.6;background:var(--bg);color:var(--text);}
+      line-height:1.6;background:var(--bg);color:var(--text);
+      max-width:700px;
+      margin: 0 auto;
+    }
     .container{max-width:700px;margin:0 auto;padding:40px 20px;background:var(--card);
       min-height:100vh;box-shadow:0 0 8px rgba(0,0,0,0.05);}
     .header{text-align:center;margin-bottom:40px;padding:12px 0;}
     .header h1{font-size:2.2rem;font-weight:800;margin-bottom:12px;}
-    .header p{font-size:1rem;color:var(--subtext);}
+    .header p{font-size:1rem;color:var(--subtext);max-width:300px;margin:0 auto}
     .github-link{display:inline-flex;align-items:center;gap:6px;background:var(--text);color:var(--bg);
       text-decoration:none;padding:8px 16px;border-radius:6px;font-size:14px;transition:opacity 0.2s;}
     .github-link:hover{opacity:0.8;}
@@ -59,15 +62,18 @@
       padding:4px 12px;border-radius:3px;opacity:0;transition:opacity 0.2s;cursor:grap}
     .code:hover .copy-label{opacity:1;}
     .note{background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:12px;margin:16px 0;color:#075985;}
-    .warning{background:var(--terminal-bg2);border:1px solid green;border-radius:6px;padding:12px;margin:16px 0;color:var(--terminal-text2);}
+    .warning{background:var(--terminal-bg2);border:1px dashed var(--terminal-text2);border-radius:6px;padding:12px;margin:16px 0;color:var(--terminal-text2);}
     .footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);text-align:center;color:var(--subtext);font-size:14px;}
     .footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:20px 0;}
     .footer-link{color:var(--text);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;
       font-size:13px;transition:all 0.2s;}
     .footer-link:hover{background:var(--code-bg);}
-    .theme-switch{position:fixed;top:10px;left:10px;z-index:1000;}
+    .theme-switch{position:absolute;top:10px;left:10px;z-index:1000;}
     select{padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--card);color:var(--text);}
     @media(max-width:768px){.container{padding:20px;} .header h1{font-size:1.8rem;} .code{font-size:12px;}}
+    a{
+      text-decoration:none;
+    }
   </style>
 </head>
 <body>
@@ -85,21 +91,21 @@
   <div class="container">
     <div class="header">
       <h1>FastPush</h1>
-      <p>أداة Bash مفتوحة المصدر لربط ورفع ملفات مشروعك إلى قيتهاب بسهولة</p>
+      <p>أداة Bash مفتوحة المصدر لربط ورفع ملفات مشروعك إلى قيتهاب بامر واحد</p>
     </div>
     <h2>التثبيت</h2>
     <div class="step">
       <div class="step-title"><div class="step-number">1</div><strong>تحميل الملف:</strong></div>
-      <div class="code terminal"><span class="copy-label">نسخ</span>curl -o fastpush.sh https://raw.githubusercontent.com/0xdya/fastpush/main/fastpush.sh</div>
+      <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>curl -o fastpush.sh https://raw.githubusercontent.com/0xdya/fastpush/main/fastpush.sh</div>
     </div>
     <div class="step">
       <div class="step-title"><div class="step-number">2</div><strong>إعطاء الصلاحيات:</strong></div>
-      <div class="code terminal"><span class="copy-label">نسخ</span>chmod +x fastpush.sh</div>
+      <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>chmod +x fastpush.sh</div>
     </div>
 
     <h2>الاستعمال</h2>
     <p>الامر الاساسي</p>
-    <div class="code terminal"><span class="copy-label">نسخ</span>./fastpush.sh</div>
+    <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>./fastpush.sh</div>
     <p>اوامر اخرى مفيدة:</p>
     <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>./fastpush.sh -m "رسالة الكوميت"</div>
     <div class="code terminal terminal-bg2"><span class="copy-label">نسخ</span>./fastpush.sh --init</div>
@@ -109,16 +115,16 @@
        - <code>--init</code> يهيئ مشروع جديد ويربطه بمستودع GitHub.<br>
        - <code>--help</code> يعرض المساعدة.</p>
 
-    <div class="warning"><strong>تنويه:</strong> الأداة تضيف جميع الملفات تلقائيًا. استعمل ملف <code>.gitignore</code> لتجنب رفع ملفات غير ضرورية.</div>
     <h2>ادعم المشروع</h2>
     <div class="footer-links">
-      <a href="https://github.com/0xdya/fastpush" class="footer-link" target="_blank">ضع نجمة على github ⭐</a>
+      <a href="https://github.com/0xdya/fastpush" class="footer-link" target="_blank">ضع نجمة على github </a>
       <a href="https://github.com/0xdya/fastpush/issues" class="footer-link" target="_blank">الإبلاغ عن خطأ</a>
       <a href="https://github.com/0xdya/fastpush/fork" class="footer-link" target="_blank">المساهمة</a>
     </div>
 
     <div class="footer">
-      <p>© 2025 FastPush - مفتوح المصدر تحت رخصة MIT</p>
+      <p>من طرف 
+      <a dir="ltr"href="https://0xdya.vercel.app">@0xdya</a></p>
     </div>
   </div>
 
@@ -147,7 +153,7 @@
         localStorage.setItem('theme', theme);
       }
       select.addEventListener('change', ()=>applyTheme(select.value));
-      const saved = localStorage.getItem('theme') || 'system';
+      const saved = localStorage.getItem('theme') || 'light';
       select.value = saved;
       applyTheme(saved);
     });
