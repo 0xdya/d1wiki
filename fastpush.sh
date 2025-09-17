@@ -9,7 +9,7 @@ cat << "EOF"
 see wiki on: https://d1wiki.vercel.app/fastpush/
 EOF
 }
-
+  
 check_dep() {
   if ! command -v "$1" >/dev/null 2>&1; then
     echo "install $1 first"

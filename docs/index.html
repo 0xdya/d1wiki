@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>شروحاتي - الرئيسية</title>
+  <title>d1wiki</title>
+  <meta name="author" content="0xdya">
+  <meta http-equiv="Content-Language" content="ar">
+  <meta name="description" content="موقع عربي اشارك فيه شروحاتي التقنية">
+  <meta name="keywords" content="d1wiki, d1, wiki, 0xdya">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="d1wiki">
+  <meta property="og:description" content="موقع عربي اشارك فيه شروحاتي التقنية">
+  <meta property="og:image" content="https://d1wiki.vercel.app/logo.png">
+  <meta property="og:url" content="https://d1wiki.vercel.app/">
+  <meta property="og:type" content="website">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="./logo.png" type="png">
+  <link rel="canonical" href="https://d1wiki.vercel.app/">
   <link href="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.css" rel="stylesheet" />
   <style>
     body {
@@ -12,50 +26,59 @@
       margin: 0;
       color: #333;
     }
+
     .container {
       max-width: 900px;
       margin: 0 auto;
       padding: 40px 20px;
       background: #fff;
       min-height: 100vh;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
+
     .header {
       text-align: center;
       margin-bottom: 40px;
       padding-bottom: 20px;
       border-bottom: 1px solid #eaecef;
     }
+
     .header h1 {
       font-size: 2.2rem;
       font-weight: 800;
       margin-bottom: 10px;
       color: #000;
     }
+
     .articles {
       display: grid;
       gap: 20px;
     }
+
     .card {
       border: 1px solid #eaecef;
       border-radius: 12px;
       padding: 20px;
       transition: 0.2s;
     }
+
     .card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
+
     .card h2 {
       font-size: 1.4rem;
       margin-bottom: 10px;
       color: #000;
     }
+
     .card p {
       font-size: 15px;
       color: #555;
       margin-bottom: 16px;
       line-height: 1.6;
     }
+
     .card a {
       display: inline-block;
       padding: 8px 16px;
@@ -65,9 +88,11 @@
       border-radius: 6px;
       font-size: 14px;
     }
+
     .card a:hover {
       opacity: 0.85;
     }
+
     .footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -76,11 +101,12 @@
       font-size: 14px;
       color: #777;
     }
-
   </style>
 </head>
+
 <body>
-  <a href="https://github.com/0xdya/d1wiki" target="_blank" id="fork-corner" class="fork-corner fc-size-small fc-pos-tr fc-animate-grow fc-theme-github"></a>
+  <a href="https://github.com/0xdya/d1wiki" target="_blank" id="fork-corner"
+    class="fork-corner fc-size-small fc-pos-tr fc-animate-grow fc-theme-github"></a>
   <div class="container">
     <div class="header">
       <h1>d1wiki</h1>
@@ -99,6 +125,13 @@
       © 2025 - كل الحقوق محفوظة
     </div>
   </div>
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
+
   <script src="https://cdn.jsdelivr.net/npm/fork-corner/dist/fork-corner.min.js" defer></script>
 </body>
+
 </html>
