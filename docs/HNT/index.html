@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HNT — d1wiki</title>
+<meta name="author" content="0xdya">
+<meta http-equiv="Content-Language" content="ar">
+<link rel="icon" href="../d1logo.png" type="png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <nav class="topbar">
+    <a href="../" class="topbar-brand">d1wiki</a>
+    <div class="gh-meta" id="gh-meta">
+      <div class="gh-loading-bar"></div>
+    </div>
+  </nav>
+
+  <main class="content">
+
+    <div class="breadcrumb" >
+      <a href="../">d1wiki</a>
+      <span>/</span>
+      HNT
+    </div>
+
+    <h1 class="article-title">HNT</h1>
+    <p class="article-subtitle">سكربت bash بسيط للتحكم في درجات الإضاءة الليلية على هايبرلاند (Hyprland) مع دعم كامل للغة العربية.
+        <br>
+        و HNT هي اختصار لـ: Hyprland Nightlight Toggle
+    </p>
+
+    <hr class="divider">
+
+    <h2>المشكلة</h2>
+    <p>
+ مع الاستخدام الطويل للشاشات، تؤثر الأشعة الزرقاء على العين وتزيد من إرهاقها. أغلب سكربتات هايبرلاند التي توفر التحكم في الإضاءة الليلية إما أن تكون معقدة وصعبة التخصيص، أو تفتقر لدعم واجهات اللغة العربية.
+    </p>
+
+    <h2>التثبيت</h2>
+
+    <p>أولاً، قم باستيراد ملف السكربت من مستودع GitHub:</p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>bash</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-bash">curl -o toggle-gammastep.sh https://raw.githubusercontent.com/0xdya/HNT/main/src/toggle-gammastep.sh</code></pre>
+    </div>
+
+    <p>ثانياً، إعطاء صلاحيات التنفيذ للملف:</p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>bash</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-bash">chmod +x ./toggle-gammastep.sh</code></pre>
+    </div>
+
+    <p>ثالثاً، نقل الملف إلى مجلد السكربتات الخاص بـ Hyprland:</p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>bash</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-bash">mkdir -p ~/.config/hypr/scripts/ && cp toggle-gammastep.sh ~/.config/hypr/scripts/</code></pre>
+    </div>
+    <div class="note">
+        <strong>تنبيه:</strong> يجب أن تكون حزمة <code>gammastep</code> مثبتة مسبقاً على توزيعتك ليعمل السكربت بشكل صحيح.
+    </div>
+    <hr class="divider">
+
+    <h2>الاستخدام</h2>
+
+    <p>
+افتح ملف إعدادات هايبرلاند <code>hyprland.conf</code> وأضف السطر التالي لتتمكن من تشغيل وإطفاء الإضاءة وتغيير درجاتها بزر واحد (يمكنك تغيير F12 إلى أي زر تفضله):
+    </p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>config</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-bash">bind = , F12, exec, ~/.config/hypr/scripts/toggle-gammastep.sh</code></pre>
+    </div>
+
+
+
+    <hr class="divider">
+
+    <h2>لماذا HNT وليس بديلاً آخر؟</h2>
+    <ul>
+      <li><strong>دعم العربية:</strong> دعم مباشر وواضح للغة العربية.</li>
+      <li><strong>البساطة:</strong> السكربت لا يتجاوز 10 أسطر، مما يجعله خفيفاً وسهلاً في التعديل.</li>
+      <li><strong>مفتوح المصدر:</strong> يمكنك قراءة الكود وتطويره بما يناسب احتياجاتك الخاصة.</li>
+    </ul>
+
+    <hr class="divider">
+
+    <div class="star-cta">
+      <p>
+        المحتوى العربي التقني نادر، وكل مشروع مفتوح المصدر بالعربية يستحق الدعم.<br>
+        إذا أفادك السكربت أو أردت تشجيع هذا النوع من المشاريع، <strong>ضع نجمة على المستودع</strong>.
+      </p>
+      <a class="star-btn" href="https://github.com/0xdya/HNT" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+        أعطِ نجمة على GitHub
+      </a>
+    </div>
+
+  </main>
+
+  <div class="footer">developed by <a href="https://0xdya.vercel.app/" >@0xdya</a></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+function copyCode(btn) {
+  const pre = btn.closest('.code-block').querySelector('pre code');
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    btn.textContent = '✓ تم';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'نسخ'; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+const ICONS = {
+  star: `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>`,
+  fork: `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/></svg>`,
+};
+
+const LANG_COLORS = {
+  JavaScript:'#f1e05a', TypeScript:'#3178c6', Python:'#3572A5',
+  Shell:'#89e051', Bash:'#89e051', CSS:'#563d7c', HTML:'#e34c26',
+};
+function langColor(l) { return LANG_COLORS[l] || '#8b8b8b'; }
+
+async function loadGHMeta() {
+  try {
+    const res = await fetch('https://api.github.com/repos/0xdya/HNT', {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    if (!res.ok) throw new Error();
+    const d = await res.json();
+    const meta = document.getElementById('gh-meta');
+    meta.innerHTML = `
+      <span>${ICONS.star} ${d.stargazers_count}</span>
+      <span>${ICONS.fork} ${d.forks_count}</span>
+      ${d.language ? `<span><span class="lang-dot" style="background:${langColor(d.language)}"></span>${d.language}</span>` : ''}
+      <a class="gh-link" href="https://github.com/0xdya/HNT" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+    `;
+  } catch {
+    document.getElementById('gh-meta').innerHTML =
+      `<a class="gh-link" href="https://github.com/0xdya/HNT" target="_blank">GitHub</a>`;
+  }
+}
+
+loadGHMeta();
+</script>
+</body>
+</html>

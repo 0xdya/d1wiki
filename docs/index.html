@@ -148,6 +148,53 @@
     font-size: 14px;
     color: #777;
   }
+  
+.contributors {
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+.contributors-title {
+  font-size: 0.8rem;
+  color: #8b949e;
+  margin-bottom: 8px;
+}
+
+.contributors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contributor-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #111;
+  font-size: 12px;
+  background: transparent; 
+  padding: 2px 4px;
+  border-radius: 50%;
+  border: 1px solid #30363d;
+  transition: all 0.2s ease;
+}
+
+.contributor-item:hover {
+  margin: 0 1rem;
+}
+
+.contributor-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.contributor-name {
+  font-family: monospace;
+}
 </style>
 </head>
 <body>
@@ -164,13 +211,13 @@
   <div class="articles" id="projects-container">
   </div>
 
-  <div class="footer">© 2025 - كل الحقوق محفوظة</div>
+  <div class="footer">developed by <a href="https://0xdya.vercel.app/" >@0xdya</a></div>
 </div>
 
 <script>const GITHUB_USER = '0xdya';
 
 const projects = [
-  { repo: 'artime',   articlePath: './artime/',   label: 'اقرأ المزيد' },
+  { repo: 'timeAr',   articlePath: './time-ar/',   label: 'اقرأ المزيد', showContributors: true },
   { repo: 'HNT',      articlePath: './HNT/',       label: 'اقرأ المزيد' },
   { repo: 'fastpush', articlePath: './fastpush/',  label: 'اقرأ المزيد' },
 ];
@@ -186,7 +233,7 @@ const LANG_COLORS = {
   CSS:        '#563d7c',
   HTML:       '#e34c26',
   C:          '#555555',
-  'C++':      '#f34b7d',
+  // 'C++':      '#f34b7d',
   Lua:        '#000080',
   Ruby:       '#701516',
   default:    '#8b8b8b',
@@ -225,6 +272,9 @@ function createCardShell(project) {
     <div class="gh-loading" id="gh-status-${project.repo}">جارٍ تحميل بيانات GitHub…</div>
     <p id="desc-${project.repo}"></p>
     <div class="gh-stats" id="stats-${project.repo}" style="display:none"></div>
+    
+    ${project.showContributors ? `<div class="contributors" id="contributors-${project.repo}"></div>` : ''}
+
     <div class="card-footer">
       <span class="updated" id="updated-${project.repo}"></span>
       <div class="card-actions">
@@ -234,6 +284,41 @@ function createCardShell(project) {
     </div>
   `;
   return div;
+}
+async function fetchContributors(repo) {
+  const url = `https://api.github.com/repos/${GITHUB_USER}/${repo}/contributors`;
+  const res = await fetch(url);
+  if (!res.ok) return [];
+  return res.json();
+}
+
+function displayContributors(repo, contributors) {
+  const container = document.getElementById(`contributors-${repo}`);
+  if (!container) return;
+
+  const title = document.createElement('div');
+  title.className = 'contributors-title';
+  title.textContent = 'المساهمون:';
+  container.appendChild(title);
+
+  const list = document.createElement('div');
+  list.className = 'contributors-list';
+
+  contributors.forEach(user => {
+    const userLink = document.createElement('a');
+    userLink.href = user.html_url;
+    userLink.target = '_blank';
+    userLink.className = 'contributor-item';
+    
+    userLink.innerHTML = `
+      <img src="${user.avatar_url}" alt="${user.login}" class="contributor-avatar">
+      <span class="contributor-name">${user.login}</span>
+    `;
+    
+    list.appendChild(userLink);
+  });
+  
+  container.appendChild(list);
 }
 
 function populateCard(project, data) {
@@ -255,7 +340,7 @@ function populateCard(project, data) {
   stats.innerHTML = `
     <span>${ICONS.star} ${data.stargazers_count.toLocaleString('ar')}</span>
     <span>${ICONS.fork} ${data.forks_count.toLocaleString('ar')}</span>
-    <span>${ICONS.eye} ${data.watchers_count.toLocaleString('ar')}</span>
+    <!-- <span>${ICONS.eye} ${data.subscribers_count.toLocaleString('ar')}</span> -->
     ${data.open_issues_count ? `<span>🐛 ${data.open_issues_count}</span>` : ''}
     ${data.license ? `<span>📄 ${data.license.spdx_id}</span>` : ''}
   `;
@@ -283,7 +368,12 @@ async function init() {
     container.appendChild(card);
 
     fetchRepo(project)
-      .then(data => populateCard(project, data))
+      .then(data => {
+        populateCard(project, data);
+        if (project.showContributors) {
+          fetchContributors(project.repo).then(users => displayContributors(project.repo, users));
+        }
+      })
       .catch(err => {
         const status = document.getElementById(`gh-status-${project.repo}`);
         if (status) {
@@ -293,7 +383,6 @@ async function init() {
       });
   }
 }
-
 init();
 </script>
 
