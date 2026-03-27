@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TimeAr — d1wiki</title>
+<title>time-ar — d1wiki</title>
 <meta name="author" content="0xdya">
 <meta http-equiv="Content-Language" content="ar">
 <link rel="icon" href="../d1logo.png" type="png">
@@ -15,9 +15,11 @@
 <div class="container">
 
   <nav class="topbar">
+    <div class="topbar-content">
     <a href="../" class="topbar-brand">d1wiki</a>
     <div class="gh-meta" id="gh-meta">
       <div class="gh-loading-bar"></div>
+    </div>
     </div>
   </nav>
 
@@ -26,35 +28,28 @@
     <div class="breadcrumb" >
       <a href="../">d1wiki</a>
       <span>/</span>
-      TimeAr
+      time-ar
     </div>
 
-    <h1 class="article-title">TimeAr</h1>
-    <p class="article-subtitle">مكتبة js بالشراكة مع الاسطورة <a href="https://github.com/mahmoudplay" dir="ltr">@mahmoudplay</a> لتحويل التواريخ إلى صيغة "منذ..." بالعربية، مع مراعاة قواعد التصريف الصحيحة للأعداد.</p>
+    <h1 class="article-title"> time-ar</h1>
+
+    <p class="article-subtitle">
+      أول مكتبة npm/cdn عربية مفتوحة المصدر بالشراكة مع الباشمهندس <a href="http://github.com/mahmoudplay/" dir="ltr">@mahmoudplay</a> لعرض كم مضى & تبقى من الزمن مع التركيز على سلامة اللغة والنحو، مع الامكانية الكاملة فالتخصيص والتعديل. <br>مثل:
+    </p>
+    <ul>
+      <li><strong>منذ ساعتين</strong></li>
+      <li><strong>بعد 3 أيام</strong></li>
+      <li><strong>الآن</strong></li>
+    </ul>
+    <p>
+      تدعم المكتبة ضبط المنطقة الزمنية (Timezone) الافتراضية، مع امكانية التخصيص.
+    </p>
 
     <hr class="divider">
 
-    <h2>المشكلة</h2>
-    <p>
-      أغلب مكتبات الـ "time ago" الموجودة إما تدعم العربية بشكل سطحي، أو تترجم الأرقام ترجمة حرفية دون مراعاة قواعد اللغة.
-      في العربية، الأعداد تُصرَّف مع المعدود: فرق شاسع بين "ثانية واحدة"، "ثانيتان"، "ثلاث ثوانٍ"، و"عشر ثوانٍ".
-      time-ar تحل هذه المشكلة بدقة، وبدون أي تبعيات خارجية.
-    </p>
-
     <h2>التثبيت</h2>
 
-    <p>طريقتان للتثبيت حسب نوع مشروعك:</p>
-
-    <p><strong>عبر CDN</strong> — للصفحات البسيطة أو المشاريع التي لا تستخدم bundler:</p>
-    <div class="code-block">
-      <div class="code-block-header">
-        <span>html</span>
-        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-      </div>
-      <pre><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/0xdya/timeAr@latest/cdn/timeAr.js"&gt;&lt;/script&gt;</code></pre>
-    </div>
-
-    <p><strong>عبر npm</strong> — للمشاريع التي تستخدم Node.js أو أدوات مثل Vite وWebpack:</p>
+    <p>باستخدام npm:</p>
     <div class="code-block">
       <div class="code-block-header">
         <span>bash</span>
@@ -63,60 +58,244 @@
       <pre><code class="language-bash">npm i time-ar</code></pre>
     </div>
 
+    <p>باستخدام pnpm:</p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>bash</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-bash">pnpm add time-ar</code></pre>
+    </div>
+
+    <p>باستخدام yarn:</p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>bash</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-bash">yarn add time-ar</code></pre>
+    </div>
+
     <hr class="divider">
 
-    <h2>الاستخدام</h2>
+    <h2>الاستخدام السريع</h2>
 
+    <h3>مثال (JavaScript)</h3>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>javascript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-javascript">import timeAr from "time-ar";
+const time = timeAr();
+const text = time.getTimeAr("13:37", time.format.shortTime);
+console.log(text)</code></pre>
+    </div>
+
+    <h3>مثال (TypeScript / ESM)</h3>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>typescript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-typescript">import timeAr from "time-ar";
+
+const t = timeAr();
+const out = t.getTimeAr("21-03-2026 14:30:15", t.format.fullDateTime);
+console.log(out); // "منذ ..."/"بعد ..."</code></pre>
+    </div>
+
+    <hr class="divider">
+
+    <h2>واجهة المكتبة (API)</h2>
     <p>
-      المكتبة تعمل مباشرة على HTML دون الحاجة لكتابة أي كود JavaScript إضافي.
-      كل ما عليك فعله هو إضافة الكلاس <code>time_ago</code> لأي عنصر، ثم تمرير التاريخ بإحدى طريقتين:
+      عند استدعاء <code>timeAr()</code> ستحصل على كائن يحتوي على:
     </p>
-
-    <p><strong>الطريقة الأولى:</strong> عبر الخاصية <code>data-date</code> — العنصر يبقى فارغًا والمكتبة تملؤه:</p>
-    <div class="code-block">
-      <div class="code-block-header">
-        <span>html</span>
-        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-      </div>
-      <pre><code class="language-html">&lt;span class="time_ago" data-date="2025-01-15T10:00:00"&gt;&lt;/span&gt;</code></pre>
-    </div>
-
-    <p><strong>الطريقة الثانية:</strong> التاريخ مباشرة في نص العنصر — مفيد إذا كانت البيانات تأتي من server-side rendering:</p>
-    <div class="code-block">
-      <div class="code-block-header">
-        <span>html</span>
-        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
-      </div>
-      <pre><code class="language-html">&lt;span class="time_ago"&gt;2025-01-15T10:00:00&lt;/span&gt;</code></pre>
-    </div>
-
-    <p>في الحالتين ستكون النتيجة نصًا مثل: <code>منذ ٣ أشهر</code>، <code>منذ يومين</code>، <code>منذ ٤٥ ثانية</code>.</p>
-
-    <div class="note">
-      التاريخ يجب أن يكون بصيغة ISO 8601 — وهي الصيغة الافتراضية التي تُرجعها معظم قواعد البيانات وخدمات الـ API.
-    </div>
-
-    <hr class="divider">
-
-    <h2>لماذا timeAr وليس بديلاً آخر؟</h2>
     <ul>
-      <li><strong>تصريف صحيح للأعداد:</strong> المكتبة تفرّق بين المفرد والمثنى والجمع بشكل سليم، وهو ما تفتقده معظم البدائل.</li>
-      <li><strong>تعمل بدون كود:</strong> مناسبة جداً للمشاريع static ولمن يبني صفحات سريعة أو يدمج المكتبة في CMS.</li>
-      <li><strong>مفتوحة المصدر:</strong> يمكنك قراءة الكود وتعديله وفق احتياجاتك.</li>
+      <li><strong><code>format</code></strong>: مجموعة تنسيقات جاهزة.</li>
+      <li><strong><code>getTimeAr(time, timeFormat)</code></strong>: تحويل وقت/تاريخ إلى نص نسبي بالعربية.</li>
+      <li><strong><code>setTimezone(timezone)</code></strong>: ضبط التايمزون الافتراضي الذي تُحسب بناءً عليه الفروقات الزمنية.</li>
     </ul>
 
     <hr class="divider">
 
-    <div class="star-cta">
-      <p>
-        المحتوى العربي التقني نادر، وكل مشروع مفتوح المصدر بالعربية يستحق الدعم.<br>
-        إذا أفادتك المكتبة أو تريد تشجيع المزيد من هذا المحتوى، <strong>ضع نجمة على الريبو</strong>.
-      </p>
-      <a class="star-btn" href="https://github.com/0xdya/timeAr" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
-        أعطِ نجمة على GitHub
-      </a>
+    <h2>الدالة <code>getTimeAr</code></h2>
+
+    <h3>التوقيع</h3>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>typescript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-typescript">getTimeAr(time: Date | string, timeFormat: string): string</code></pre>
     </div>
+
+    <h3>ماذا تُرجع؟</h3>
+    <ul>
+      <li>إذا كان الفرق أقل من <strong>5 ثوانٍ</strong>: ترجع <strong><code>"الآن"</code></strong></li>
+      <li>إذا كان التاريخ في الماضي: تبدأ بـ <strong><code>"منذ"</code></strong></li>
+      <li>إذا كان التاريخ في المستقبل: تبدأ بـ <strong><code>"بعد"</code></strong></li>
+    </ul>
+
+    <h3>ما هو <code>timeFormat</code>؟</h3>
+    <p>
+      هو <strong>تنسيق parsing</strong> الذي سيتم الاعتماد عليه لفهم قيمة <code>time</code> عندما تكون <strong>نصًا</strong> (<code>string</code>).
+    </p>
+
+    <!-- <div class="note">
+      <p style="margin: 0;">
+        ملاحظة مهمة: عند تمرير <code>Date</code> ككائن، يظل <code>timeFormat</code> مطلوبًا في التوقيع، لكنه لا يُستخدم في parsing (لأن <code>Date</code> واضحة).
+        الأفضل دائمًا تمرير أحد تنسيقات <code>t.format.*</code> للحفاظ على نمط موحد في مشروعك.
+      </p>
+    </div> -->
+
+    <hr class="divider">
+
+    <h2>التنسيقات الجاهزة <code>format</code></h2>
+    <p>هذه هي القيم الجاهزة المتاحة داخل <code>t.format</code>:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>الاسم</th>
+          <th>القيمة</th>
+          <th>مثال نصي</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>shortDate</code></td><td><code>DD-MM-YYYY</code></td><td><code>21-03-2026</code></td></tr>
+        <tr><td><code>longDate</code></td><td><code>MMMM D, YYYY</code></td><td><code>March 21, 2026</code></td></tr>
+        <tr><td><code>shortTime</code></td><td><code>HH:mm</code></td><td><code>14:30</code></td></tr>
+        <tr><td><code>longTime</code></td><td><code>HH:mm:ss</code></td><td><code>14:30:15</code></td></tr>
+        <tr><td><code>fullDateTime</code></td><td><code>DD-MM-YYYY HH:mm:ss</code></td><td><code>21-03-2026 14:30:15</code></td></tr>
+        <tr><td><code>monthDay</code></td><td><code>MMMM D</code></td><td><code>March 21</code></td></tr>
+        <tr><td><code>monthYear</code></td><td><code>MMMM YYYY</code></td><td><code>March 2026</code></td></tr>
+        <tr><td><code>dayMonthYear</code></td><td><code>DD/MM/YYYY</code></td><td><code>21/03/2026</code></td></tr>
+        <tr><td><code>iso8601</code></td><td><code>YYYY-MM-DDTHH:mm:ssZ[Z]</code></td><td><code>2026-03-21T14:30:15Z</code></td></tr>
+        <tr><td><code>time12h</code></td><td><code>hh:mm A</code></td><td><code>02:30 PM</code></td></tr>
+        <tr><td><code>time12hSeconds</code></td><td><code>hh:mm:ss A</code></td><td><code>02:30:15 PM</code></td></tr>
+      </tbody>
+    </table>
+
+    <hr class="divider">
+
+    <h2>إدخال الوقت كـ <code>string</code> (أمثلة عملية)</h2>
+
+    <h3>1) تاريخ كامل</h3>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>typescript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-typescript">import timeAr from "time-ar";
+
+const t = timeAr();
+console.log(t.getTimeAr("21-03-2026 14:30:15", t.format.fullDateTime));</code></pre>
+    </div>
+
+    <h3>2) تاريخ فقط</h3>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>typescript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-typescript">import timeAr from "time-ar";
+
+const t = timeAr();
+console.log(t.getTimeAr("21-03-2026", t.format.shortDate));</code></pre>
+    </div>
+
+    <h3>3) وقت فقط (HH:mm أو HH:mm:ss)</h3>
+    <p>
+      إذا مررت وقتًا فقط مثل <code>"14:30"</code> أو <code>"14:30:15"</code> فالمكتبة تعتبره <strong>وقت اليوم الحالي</strong> في التايمزون الحالي ثم تحسب الفرق مع الآن:
+    </p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>typescript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-typescript">import timeAr from "time-ar";
+
+const t = timeAr();
+console.log(t.getTimeAr("14:30", t.format.shortTime));
+console.log(t.getTimeAr("14:30:15", t.format.longTime));</code></pre>
+    </div>
+
+    <hr class="divider">
+
+    <h2>ضبط المنطقة الزمنية (Timezone)</h2>
+    <p>
+      افتراضيًا، يتم اختيار التايمزون من نظام التشغيل (أو <code>UTC</code> إذا لم يتوفر).
+      يمكنك تغييره عبر <code>setTimezone</code>:
+    </p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>typescript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-typescript">import timeAr from "time-ar";
+
+const t = timeAr();
+t.setTimezone("Africa/Cairo");
+// t.setTimezone("Africa/Algiers");
+// t.setTimezone("Africa/....");
+
+console.log(t.getTimeAr("21-03-2026 14:30:15", t.format.fullDateTime));</code></pre>
+    </div>
+
+    <h3>أخطاء متوقعة</h3>
+    <ul>
+      <li>إذا كانت المنطقة الزمنية غير صحيحة، سترمي الدالة خطأ:
+        <ul>
+          <code dir="ltr">file:///path/index.js:4
+            t.setTimezone("....المنطقة الخطأ التي وضعتها");</code>
+        </ul>
+      </li>
+    </ul>
+
+
+    <hr class="divider">
+
+    <h2>ملاحظات ودقة الإخراج</h2>
+    <ul>
+      <li><strong>التحليل (Parsing) صارم:</strong> إذا لم تتطابق قيمة التاريخ النصية مع <code>timeFormat</code> سيتم رمي خطأ مثل:
+        <div style="margin-top: 6px;">
+          <code>Invalid Date: The provided date "..." does not match the format "..." .</code>
+        </div>
+      </li>
+      <li><strong>الوحدات المدعومة:</strong> ثانية، دقيقة، ساعة، يوم، أسبوع، شهر، سنة.</li>
+      <li><strong>صياغة الجمع:</strong> يتم تطبيق صيغ عربية مختلفة (مفرد/مثنى/جمع حتى 10/مفرد منصوب بعد 10) مثل:
+        <div style="margin-top: 6px;">
+          <code>منذ ساعة</code>، <code>منذ ساعتين</code>، <code>منذ 3 ساعات</code>، <code>منذ 11 ساعة</code>
+        </div>
+      </li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>أسئلة شائعة</h2>
+
+    <h3>هل المكتبة تُرجع “تنسيق تاريخ” (مثل 21/03/2026)؟</h3>
+    <p>
+      لا. وظيفتها الأساسية <strong>الوقت النسبي</strong> (منذ/بعد/الآن).
+      أما القيم داخل <code>format</code> فهي <strong>قوالب parsing</strong> جاهزة لتسهيل إدخال التاريخ/الوقت كسلاسل نصية.
+    </p>
+
+    <h3>هل أستطيع استخدام تنسيق غير الموجود في <code>format</code>؟</h3>
+    <p>
+      نعم. <code>getTimeAr</code> يقبل أي نص تنسيق يدعمه <code>dayjs</code> (مع <code>customParseFormat</code>).
+    </p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>typescript</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-typescript">import timeAr from "time-ar";
+
+const t = timeAr();
+console.log(t.getTimeAr("2026|03|21 14-30-15", "YYYY|MM|DD HH-mm-ss"));</code></pre>
+    </div>
+
 
   </main>
 
