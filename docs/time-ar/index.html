@@ -7,7 +7,7 @@
 <meta name="author" content="0xdya">
 <meta http-equiv="Content-Language" content="ar">
 <link rel="icon" href="../d1logo.png" type="png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -34,22 +34,21 @@
     <h1 class="article-title"> time-ar</h1>
 
     <p class="article-subtitle">
-      أول مكتبة npm/cdn عربية مفتوحة المصدر بالشراكة مع الباشمهندس <a href="http://github.com/mahmoudplay/" dir="ltr">@mahmoudplay</a> لعرض كم مضى & تبقى من الزمن مع التركيز على سلامة اللغة والنحو، مع الامكانية الكاملة فالتخصيص والتعديل. <br>مثل:
+      أول مكتبة npm/cdn عربية مفتوحة المصدر بالشراكة مع الباشمهندس <a href="http://github.com/mahmoudplay/" dir="ltr">@mahmoudplay</a> لعرض كم مضى & تبقى من الزمن مع التركيز على سلامة اللغة والنحو، مع الامكانية الكاملة فالتخصيص والتعديل. 
+      <!-- <br>
+    +
+       تدعم المكتبة تحديد المنطقة الزمنية الافتراضية مع امكانية التخصيص. -->
     </p>
     <ul>
+      <span>النتيجة تكون هكذا:</span>
       <li><strong>منذ ساعتين</strong></li>
       <li><strong>بعد 3 أيام</strong></li>
       <li><strong>الآن</strong></li>
     </ul>
-    <p>
-      تدعم المكتبة ضبط المنطقة الزمنية (Timezone) الافتراضية، مع امكانية التخصيص.
-    </p>
 
-    <hr class="divider">
+    <h2><img width="16" src="../gif/4.gif"> التثبيت</h2>
 
-    <h2>التثبيت</h2>
-
-    <p>باستخدام CDN ( للمواقع static ):</p>
+    <p>باستخدام CDN ( للمواقع الثابتة ):</p>
     <div class="code-block">
       <div class="code-block-header">
         <span>html</span>
@@ -86,41 +85,31 @@
       <pre><code class="language-bash">yarn add time-ar</code></pre>
     </div>
 
-    <hr class="divider">
+    <hr>
 
-    <h2>الاستخدام السريع</h2>
+    <h2 class="title"><img width="16" src="../gif/4.gif">الاستخدام السريع</h2>
 
-    <h2>استخدام نسخة الـ CDN</h2>
+    <h3> نسخة الـ CDN</h3>
     <p>
       تتميز نسخة الـ CDN بخاصية <strong>التشغيل التلقائي</strong>؛ حيث تبحث المكتبة فور تحميلها عن العناصر التي تحمل كلاس <code>.time-ar</code> أو سمة <code>data-date</code> وتقوم بتحديثها كل 30 ثانية تلقائياً.
     </p>
-
-
-    <h3>مثال (HTMl)</h3>
+    
+    
+    <h4>مثال (HTMl)</h4>
     <div class="code-block">
       <div class="code-block-header">
         <span>html</span>
         <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
       </div>
       <pre><code class="language-html">&lt;span class="time-ar" data-date="2026-03-21T14:30:15"&gt;سيتم التحديث هنا&lt;/span&gt;
-
-&lt;!-- يمكنك أيضًا استخدام الطريقة المختصرة وتعطي نفس النتيجة --&gt
-&lt;span class="time-ar"&gt;2026-03-21T14:30:15&lt;/span&gt;</code></pre>
-    </div>
-
-    <h3>مثال (JavaScript)</h3>
-    <div class="code-block">
-      <div class="code-block-header">
-        <span>javascript</span>
-        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+        
+        &lt;!-- يمكنك أيضًا استخدام الطريقة المختصرة وتعطي نفس النتيجة --&gt
+        &lt;span class="time-ar"&gt;2026-03-21T14:30:15&lt;/span&gt;</code></pre>
       </div>
-      <pre><code class="language-javascript">import timeAr from "time-ar";
-const time = timeAr();
-const text = time.getTimeAr("13:37", time.format.shortTime);
-console.log(text)</code></pre>
-    </div>
-
-    <h3>مثال (TypeScript / ESM)</h3>
+      
+      <h3> نسخة الـ npm</h3>
+        
+    <h4>مثال TypeScript & JavaScript</h4>
     <div class="code-block">
       <div class="code-block-header">
         <span>typescript</span>
@@ -133,7 +122,7 @@ const out = t.getTimeAr("21-03-2026 14:30:15", t.format.fullDateTime);
 console.log(out); // "منذ ..."/"بعد ..."</code></pre>
     </div>
 
-    <hr class="divider">
+    <hr>
 
     <h2>واجهة المكتبة (API)</h2>
     <p>
@@ -145,7 +134,7 @@ console.log(out); // "منذ ..."/"بعد ..."</code></pre>
       <li><strong><code>setTimezone(timezone)</code></strong>: ضبط التايمزون الافتراضي الذي تُحسب بناءً عليه الفروقات الزمنية.</li>
     </ul>
 
-    <hr class="divider">
+    <hr>
 
     <h2>الدالة <code>getTimeAr</code></h2>
 
@@ -167,7 +156,7 @@ console.log(out); // "منذ ..."/"بعد ..."</code></pre>
 
     <h3>ما هو <code>timeFormat</code>؟</h3>
     <p>
-      هو <strong>تنسيق parsing</strong> الذي سيتم الاعتماد عليه لفهم قيمة <code>time</code> عندما تكون <strong>نصًا</strong> (<code>string</code>).
+      هو <strong>التنسيق</strong> الذي سيتم الاعتماد عليه لفهم قيمة <code>التاريخ والوقت</code> عندما يكونان <strong>نصًا</strong>.
     </p>
 
     <!-- <div class="note">
@@ -177,10 +166,10 @@ console.log(out); // "منذ ..."/"بعد ..."</code></pre>
       </p>
     </div> -->
 
-    <hr class="divider">
+    <hr>
 
     <h2>التنسيقات الجاهزة <code>format</code></h2>
-    <p>هذه هي القيم الجاهزة المتاحة داخل <code>t.format</code>:</p>
+    <p>هادي جميع القيم المتاحة حاليًا:</p>
 
     <table>
       <thead>
@@ -191,21 +180,65 @@ console.log(out); // "منذ ..."/"بعد ..."</code></pre>
         </tr>
       </thead>
       <tbody>
-        <tr><td><code>shortDate</code></td><td><code>DD-MM-YYYY</code></td><td><code>21-03-2026</code></td></tr>
-        <tr><td><code>longDate</code></td><td><code>MMMM D, YYYY</code></td><td><code>March 21, 2026</code></td></tr>
-        <tr><td><code>shortTime</code></td><td><code>HH:mm</code></td><td><code>14:30</code></td></tr>
-        <tr><td><code>longTime</code></td><td><code>HH:mm:ss</code></td><td><code>14:30:15</code></td></tr>
-        <tr><td><code>fullDateTime</code></td><td><code>DD-MM-YYYY HH:mm:ss</code></td><td><code>21-03-2026 14:30:15</code></td></tr>
-        <tr><td><code>monthDay</code></td><td><code>MMMM D</code></td><td><code>March 21</code></td></tr>
-        <tr><td><code>monthYear</code></td><td><code>MMMM YYYY</code></td><td><code>March 2026</code></td></tr>
-        <tr><td><code>dayMonthYear</code></td><td><code>DD/MM/YYYY</code></td><td><code>21/03/2026</code></td></tr>
-        <tr><td><code>iso8601</code></td><td><code>YYYY-MM-DDTHH:mm:ssZ[Z]</code></td><td><code>2026-03-21T14:30:15Z</code></td></tr>
-        <tr><td><code>time12h</code></td><td><code>hh:mm A</code></td><td><code>02:30 PM</code></td></tr>
-        <tr><td><code>time12hSeconds</code></td><td><code>hh:mm:ss A</code></td><td><code>02:30:15 PM</code></td></tr>
+        <tr>
+          <td data-label="الاسم"><code>shortDate</code></td>
+          <td data-label="القيمة"><code>DD-MM-YYYY</code></td>
+          <td data-label="مثال نصي"><code>21-03-2026</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>longDate</code></td>
+          <td data-label="القيمة"><code>MMMM D, YYYY</code></td>
+          <td data-label="مثال نصي"><code>March 21, 2026</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>shortTime</code></td>
+          <td data-label="القيمة"><code>HH:mm</code></td>
+          <td data-label="مثال نصي"><code>14:30</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>longTime</code></td>
+          <td data-label="القيمة"><code>HH:mm:ss</code></td>
+          <td data-label="مثال نصي"><code>14:30:15</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>fullDateTime</code></td>
+          <td data-label="القيمة"><code>DD-MM-YYYY HH:mm:ss</code></td>
+          <td data-label="مثال نصي"><code>21-03-2026 14:30:15</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>monthDay</code></td>
+          <td data-label="القيمة"><code>MMMM D</code></td>
+          <td data-label="مثال نصي"><code>March 21</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>monthYear</code></td>
+          <td data-label="القيمة"><code>MMMM YYYY</code></td>
+          <td data-label="مثال نصي"><code>March 2026</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>dayMonthYear</code></td>
+          <td data-label="القيمة"><code>DD/MM/YYYY</code></td>
+          <td data-label="مثال نصي"><code>21/03/2026</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>iso8601</code></td>
+          <td data-label="القيمة"><code>YYYY-MM-DDTHH:mm:ssZ[Z]</code></td>
+          <td data-label="مثال نصي"><code>2026-03-21T14:30:15Z</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>time12h</code></td>
+          <td data-label="القيمة"><code>hh:mm A</code></td>
+          <td data-label="مثال نصي"><code>02:30 PM</code></td>
+        </tr>
+        <tr>
+          <td data-label="الاسم"><code>time12hSeconds</code></td>
+          <td data-label="القيمة"><code>hh:mm:ss A</code></td>
+          <td data-label="مثال نصي"><code>02:30:15 PM</code></td>
+        </tr>
       </tbody>
     </table>
 
-    <hr class="divider">
+    <hr>
 
     <h2>إدخال الوقت كـ <code>string</code> (أمثلة عملية)</h2>
 
@@ -249,11 +282,11 @@ console.log(t.getTimeAr("14:30", t.format.shortTime));
 console.log(t.getTimeAr("14:30:15", t.format.longTime));</code></pre>
     </div>
 
-    <hr class="divider">
+    <hr>
 
     <h2>ضبط المنطقة الزمنية (Timezone)</h2>
     <p>
-      افتراضيًا، يتم اختيار التايمزون من نظام التشغيل (أو <code>UTC</code> إذا لم يتوفر).
+      افتراضيًا، يتم اختيار التايمزون من نظام التشغيل.
       يمكنك تغييره عبر <code>setTimezone</code>:
     </p>
     <div class="code-block">
@@ -274,21 +307,21 @@ console.log(t.getTimeAr("21-03-2026 14:30:15", t.format.fullDateTime));</code></
     <h3>أخطاء متوقعة</h3>
     <ul>
       <li>إذا كانت المنطقة الزمنية غير صحيحة، سترمي الدالة خطأ:
-        <ul>
-          <code dir="ltr">file:///path/index.js:4
-            t.setTimezone("....المنطقة الخطأ التي وضعتها");</code>
-        </ul>
+        <br>
+<code dir="ltr">file:///path/index.js:4
+            t.setTimezone("...");</code>
+
       </li>
     </ul>
 
 
-    <hr class="divider">
+    <hr>
 
     <h2>ملاحظات ودقة الإخراج</h2>
     <ul>
-      <li><strong>التحليل (Parsing) صارم:</strong> إذا لم تتطابق قيمة التاريخ النصية مع <code>timeFormat</code> سيتم رمي خطأ مثل:
+      <li><strong> تحليل التنسيقات صارم:</strong> إذا لم تتطابق قيمة التاريخ النصية مع <code>التنسيق الذي تم اختياره</code> سيتم رمي خطأ مثل:
         <div style="margin-top: 6px;">
-          <code>Invalid Date: The provided date "..." does not match the format "..." .</code>
+          <code>Invalid Date: The provided date ... does not match the format ...</code>
         </div>
       </li>
       <li><strong>الوحدات المدعومة:</strong> ثانية، دقيقة، ساعة، يوم، أسبوع، شهر، سنة.</li>
@@ -299,35 +332,52 @@ console.log(t.getTimeAr("21-03-2026 14:30:15", t.format.fullDateTime));</code></
       </li>
     </ul>
 
-    <hr class="divider">
 
-    <h2>أسئلة شائعة</h2>
+    <h2><img width="16" src="../gif/4.gif">أسئلة شائعة</h2>
 
-    <h3>هل المكتبة تُرجع “تنسيق تاريخ” (مثل 21/03/2026)؟</h3>
+    <h3>هل يدعم العرض بالانجليزية ؟</h3>
+    <p>
+      أكيد لا ._. 
+      ،سبب صنعنا لهاد المكتبة لتكون أول مكتبة عربية خام، تدعم النحو وليس ترجمة آلية.
+    </p>
+    <!-- <h3>هل المكتبة تُرجع “تنسيق تاريخ” (مثل 21/03/2026)؟</h3>
     <p>
       لا. وظيفتها الأساسية <strong>الوقت النسبي</strong> (منذ/بعد/الآن).
-      أما القيم داخل <code>format</code> فهي <strong>قوالب parsing</strong> جاهزة لتسهيل إدخال التاريخ/الوقت كسلاسل نصية.
-    </p>
+      أما القيم داخل <code>format</code> فهي <strong>قوالب</strong> جاهزة لتسهيل إدخال التاريخ/الوقت كسلاسل نصية.
+    </p> -->
 
-    <h3>هل أستطيع استخدام تنسيق غير الموجود في <code>format</code>؟</h3>
+    <h3>هل أستطيع استخدام تنسيق غير الموجود ؟</h3>
     <p>
-      نعم. <code>getTimeAr</code> يقبل أي نص تنسيق يدعمه <code>dayjs</code> (مع <code>customParseFormat</code>).
+      نعم، يقبل أي تنسيق عبر:
     </p>
     <div class="code-block">
       <div class="code-block-header">
         <span>typescript</span>
         <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
       </div>
-      <pre><code class="language-typescript">import timeAr from "time-ar";
-
-const t = timeAr();
-console.log(t.getTimeAr("2026|03|21 14-30-15", "YYYY|MM|DD HH-mm-ss"));</code></pre>
+      <pre><code class="language-typescript">console.log(t.getTimeAr("2026|03|21 14-30-15", "YYYY|MM|DD HH-mm-ss"));</code></pre>
     </div>
-
+    <div class="footer-star">
+      <hr class="footer-hr">
+      <p>
+        المحتوى العربي التقني نادر، وكل مشروع مفتوح المصدر بالعربية يستحق الدعم.<br>
+        إذا أفادك السكربت أو أردت تشجيع هذا النوع من المشاريع، <strong>ضع نجمة على المستودع</strong>.
+      </p>
+      <div class="footer-star-btns">
+        <a class="star-btn" href="https://github.com/0xdya/timeAr/" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+          أعطِ نجمة على قيتهاب
+        </a>
+        <a class="star-btn-2" href="https://github.com/0xdya/timeAr/fork/" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2.5 0C1.11929 0 0 1.11929 0 2.5C0 3.70948 0.85888 4.71836 2 4.94999V10.05C0.85888 10.2816 0 11.2905 0 12.5C0 13.8807 1.11929 15 2.5 15C3.88071 15 5 13.8807 5 12.5C5 11.2905 4.14112 10.2816 3 10.05V9H9.5C11.433 9 13 7.433 13 5.5V4.94999C14.1411 4.71836 15 3.70948 15 2.5C15 1.11929 13.8807 0 12.5 0C11.1193 0 10 1.11929 10 2.5C10 3.70948 10.8589 4.71836 12 4.94999V5.5C12 6.88071 10.8807 8 9.5 8H3V4.94999C4.14112 4.71836 5 3.70948 5 2.5C5 1.11929 3.88071 0 2.5 0Z"/></svg>
+           fork
+        </a>
+      </div>
+    </div>
 
   </main>
 
-  <div class="footer">developed by <a href="https://0xdya.vercel.app/" >@0xdya</a></div>
+  <div class="footer">صنع بواسطة <a href="https://0xdya.vercel.app/" >@ضياء_الدين</a> & <a href="https://github.com/mahmoudplay/" >@محمود</a></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
