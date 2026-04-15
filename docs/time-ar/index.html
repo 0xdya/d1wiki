@@ -49,6 +49,16 @@
 
     <h2>التثبيت</h2>
 
+    <p>باستخدام CDN ( للمواقع static ):</p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>html</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/0xdya/timeAr@cdn/dist/script.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+
     <p>باستخدام npm:</p>
     <div class="code-block">
       <div class="code-block-header">
@@ -79,6 +89,24 @@
     <hr class="divider">
 
     <h2>الاستخدام السريع</h2>
+
+    <h2>استخدام نسخة الـ CDN</h2>
+    <p>
+      تتميز نسخة الـ CDN بخاصية <strong>التشغيل التلقائي</strong>؛ حيث تبحث المكتبة فور تحميلها عن العناصر التي تحمل كلاس <code>.time-ar</code> أو سمة <code>data-date</code> وتقوم بتحديثها كل 30 ثانية تلقائياً.
+    </p>
+
+
+    <h3>مثال (HTMl)</h3>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>html</span>
+        <button class="copy-btn" onclick="copyCode(this)">نسخ</button>
+      </div>
+      <pre><code class="language-html">&lt;span class="time-ar" data-date="2026-03-21T14:30:15"&gt;سيتم التحديث هنا&lt;/span&gt;
+
+&lt;!-- يمكنك أيضًا استخدام الطريقة المختصرة وتعطي نفس النتيجة --&gt
+&lt;span class="time-ar"&gt;2026-03-21T14:30:15&lt;/span&gt;</code></pre>
+    </div>
 
     <h3>مثال (JavaScript)</h3>
     <div class="code-block">
