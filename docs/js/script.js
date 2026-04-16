@@ -20,7 +20,6 @@ themeToggle.addEventListener('click', () => {
 function loadGiscus() {
     const container = document.querySelector('.giscus');
     if (!container) return;
-   const themeUrl = "https://0xdya.github.io/d1wiki/css/giscus-theme.css";
 
     const script = document.createElement('script');
     script.src = "https://giscus.app/client.js";
@@ -33,7 +32,10 @@ function loadGiscus() {
     script.setAttribute('data-reactions-enabled', "0");
     script.setAttribute('data-emit-metadata', "0");
     script.setAttribute('data-input-position', "bottom");
-    script.setAttribute('data-theme', themeUrl);
+    
+    // التعديل هنا: استخدام الثيم التلقائي المتوافق مع النظام
+    script.setAttribute('data-theme', "preferred_color_scheme");
+    
     script.setAttribute('data-lang', "ar");
     script.setAttribute('crossorigin', "anonymous");
     script.async = true;
