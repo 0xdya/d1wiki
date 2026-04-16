@@ -404,14 +404,27 @@ function populateCard(project, data) {
 }
 
 async function fetchRepo(project) {
-  const url = `https://api.github.com/repos/${GITHUB_USER}/${project.repo}`;
-  const res = await fetch(url, {
-    headers: { 'Accept': 'application/vnd.github+json' }
-  });
-  if (!res.ok) throw new Error(`${res.status}`);
-  return res.json();
-}
+  const cacheKey = `gh-repo-${project.repo}`;
+  const cached = localStorage.getItem(cacheKey);
+  
+  if (cached) {
+    const { data, expiry } = JSON.parse(cached);
+    if (new Date().getTime() < expiry) return data; 
+  }
 
+  const url = `https://api.github.com/repos/${GITHUB_USER}/${project.repo}`;
+  const res = await fetch(url);
+  
+  if (!res.ok) throw new Error(`${res.status}`);
+  
+  const data = await res.json();
+  localStorage.setItem(cacheKey, JSON.stringify({
+    data: data,
+    expiry: new Date().getTime() + 3600000 
+  }));
+  
+  return data;
+}
 async function init() {
   const container = document.getElementById('projects-container');
 
