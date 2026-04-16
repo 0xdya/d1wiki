@@ -1,27 +1,28 @@
 /* docs/css/giscus-theme.css */
-main {
-    --color-canvas-default: transparent;
-    --color-canvas-subtle: var(--surface);
-    --color-border-default: var(--border);
-    --color-border-muted: var(--border);
-    
-    --color-fg-default: var(--text-main);
-    --color-fg-muted: var(--text-muted);
-    
-    --color-btn-bg: var(--surface-secondary);
-    --color-btn-text: var(--text-main);
-    --color-btn-border: var(--border);
-    --color-btn-hover-bg: var(--border-hover);
-    
-    --color-accent-fg: var(--link);
-  }
+/* استخدم :root لضمان أن المتغيرات متاحة لكل العناصر */
+:root {
+  --color-canvas-default: transparent;
+  --color-canvas-subtle: #161b22; /* استبدل var(--surface) بقيم مباشرة إذا لم تعمل */
+  --color-border-default: #30363d;
+  --color-border-muted: #30363d;
+  
+  --color-fg-default: #c9d1d9;
+  --color-fg-muted: #8b949e;
+  
+  --color-btn-bg: #21262d;
+  --color-btn-text: #c9d1d9;
+  --color-btn-border: #30363d;
+  --color-btn-hover-bg: #8b949e;
+  
+  --color-accent-fg: #58a6ff;
+}
   
   .giscus-frame {
     font-family: var(--font-arabic) !important;
   }
   
-  .giscus-input {
+  /* .giscus-input {
     background-color: var(--bg) !important;
     /* border: 1px solid var(--border) !important; */
     border-radius: var(--radius) !important;
-  }
+  } */
