@@ -26,7 +26,7 @@ function loadGiscus() {
     script.setAttribute('data-repo', "0xdya/d1wiki");
     script.setAttribute('data-repo-id', "R_kgDOPqo2eQ");
     script.setAttribute('data-category', "General");
-    script.setAttribute('data-category-id', "DIC_kwDOPqo2ec4CieW5"); 
+    script.setAttribute('data-category-id', "DIC_kwDOPqo2ec4C7AlB"); 
     script.setAttribute('data-mapping', "pathname");
     script.setAttribute('data-strict', "1");
     script.setAttribute('data-reactions-enabled', "0");
