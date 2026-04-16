@@ -1,44 +1,17 @@
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            
-            if (body.classList.contains('light')) {
-                body.classList.remove('light');
-                icon.textContent = '🌙';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.add('light');
-                icon.textContent = '☀️';
-                localStorage.setItem('theme', 'light');
-            }
-        }
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            const icon = document.getElementById('theme-icon');
-            
-            if (savedTheme === 'light') {
-                document.body.classList.add('light');
-                icon.textContent = '☀️';
-            }
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'blue') {
+    body.classList.add('blue-theme');
+}
 
-            // Search functionality
-            const searchInput = document.querySelector('.search-input');
-            const searchBtn = document.querySelector('.search-btn');
-
-            function search() {
-                const query = searchInput.value.trim();
-                if (query) {
-                    console.log('البحث عن:', query);
-                    // Add search logic here
-                }
-            }
-
-            searchBtn.addEventListener('click', search);
-            searchInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    search();
-                }
-            });
-        });
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('blue-theme');
+    
+    if (body.classList.contains('blue-theme')) {
+        localStorage.setItem('theme', 'blue');
+    } else {
+        localStorage.setItem('theme', 'black');
+    }
+});
