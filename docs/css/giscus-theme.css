@@ -1,28 +1,41 @@
-/* docs/css/giscus-theme.css */
-/* استخدم :root لضمان أن المتغيرات متاحة لكل العناصر */
 :root {
+  /* الخلفيات */
   --color-canvas-default: transparent;
-  --color-canvas-subtle: #161b22; /* استبدل var(--surface) بقيم مباشرة إذا لم تعمل */
-  --color-border-default: #30363d;
-  --color-border-muted: #30363d;
+  --color-canvas-subtle: #161b22; /* نفس لون surface عندك */
   
+  /* الحدود */
+  --color-border-default: #30363d;
+  --color-border-muted: #21262d;
+  
+  /* النصوص */
   --color-fg-default: #c9d1d9;
   --color-fg-muted: #8b949e;
+
+  /* تحسين شكل الزر (سجل الدخول / تعليق) */
+  --color-btn-bg: #238636; /* لون أخضر هادئ أو غيره لـ #21262d */
+  --color-btn-text: #ffffff;
+  --color-btn-border: rgba(240, 246, 252, 0.1);
+  --color-btn-hover-bg: #2ea043;
   
-  --color-btn-bg: #21262d;
-  --color-btn-text: #c9d1d9;
-  --color-btn-border: #30363d;
-  --color-btn-hover-bg: #8b949e;
-  
+  /* الروابط والتفاعلات */
   --color-accent-fg: #58a6ff;
 }
-  
-  .giscus-frame {
-    font-family: var(--font-arabic) !important;
-  }
-  
-  /* .giscus-input {
-    background-color: var(--bg) !important;
-    /* border: 1px solid var(--border) !important; */
-    border-radius: var(--radius) !important;
-  } */
+
+/* تحسين صندوق الكتابة */
+.giscus-input {
+  background-color: #0d1117 !important; /* لون الخلفية الأساسي --bg */
+  border: 1px solid #30363d !important;
+  border-radius: 6px !important;
+  padding: 10px !important;
+}
+
+/* جعل التبويبات (كتابة / عرض) أنحف وأبسط */
+.giscus-tab {
+  font-size: 13px !important;
+  font-family: inherit !important;
+}
+
+/* إخفاء حدود الـ iframe الزائدة */
+.giscus-frame {
+  border: none !important;
+}
