@@ -1,25 +1,38 @@
 :root {
+<<<<<<< HEAD
   /* الخلفيات - طبقات لزيادة العمق */
+=======
+>>>>>>> 6377f1a (اصلاح خلل عدم عرض التعليقات)
   --color-canvas-default: transparent;
   --color-canvas-subtle: #0d1117; 
   --color-canvas-card: #161b22;
   
+<<<<<<< HEAD
   /* الحدود - أنحف وأكثر ذكاءً */
+=======
+>>>>>>> 6377f1a (اصلاح خلل عدم عرض التعليقات)
   --color-border-default: #30363d;
   --color-border-muted: #21262d;
   --color-border-active: #58a6ff;
   
+<<<<<<< HEAD
   /* النصوص - تحسين التباين لراحة العين */
+=======
+>>>>>>> 6377f1a (اصلاح خلل عدم عرض التعليقات)
   --color-fg-default: #e6edf3;
   --color-fg-muted: #9198a1;
   --color-fg-subtle: #7d8590;
 
+<<<<<<< HEAD
   /* الأزرار - ستايل Vercel (Minimalist) */
+=======
+>>>>>>> 6377f1a (اصلاح خلل عدم عرض التعليقات)
   --color-btn-bg: #f0f6fc;
   --color-btn-text: #0d1117;
   --color-btn-border: transparent;
   --color-btn-hover-bg: #ffffff;
   
+<<<<<<< HEAD
   /* اللمسة الجمالية (Accent) */
   --color-accent-fg: #2f81f7;
 }
@@ -28,6 +41,30 @@
   background-color: var(--color-canvas-card) !important;
   border: 1px solid var(--color-border-default) !important;
   border-radius: 12px !important; /* زوايا أكثر نعومة */
+=======
+  --color-accent-fg: #2f81f7;
+}
+.gsc-comments {
+  background-color: transparent !importan;
+  border: none !important;
+  border-radius: 12px !important; 
+  padding: 12px 16px !important;
+  transition: all 0.2s ease-in-out !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4) !important;
+}
+.gsc-comment-box {
+  background-color: transparent !importan;
+  border: none !important;
+}
+.giscus-wrapper {
+  background-color: none !important;
+  border: none !important;
+}
+.giscus-input {
+  background-color: var(--color-canvas-card) !important;
+  border: 1px solid var(--color-border-default) !important;
+  border-radius: 12px !important; 
+>>>>>>> 6377f1a (اصلاح خلل عدم عرض التعليقات)
   padding: 12px 16px !important;
   transition: all 0.2s ease-in-out !important;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.4) !important;
@@ -40,7 +77,6 @@
   outline: none !important;
 }
 
-/* ستايل التبويبات (الردود، التفاعلات) */
 .giscus-tab {
   font-size: 14px !important;
   font-weight: 500 !important;
@@ -55,7 +91,6 @@
   background-color: var(--color-border-muted) !important;
 }
 
-/* ستايل التعليقات الفردية */
 .giscus-comment {
   border: 1px solid var(--color-border-muted) !important;
   border-radius: 12px !important;
@@ -64,8 +99,8 @@
   backdrop-filter: blur(8px) !important;
 }
 
-/* تحسين شكل الأزرار */
-.giscus-button-primary {
+.giscus-button-primary, .btn {
+  border: 1px solid var(--color-border-muted) !important;
   border-radius: 8px !important;
   font-weight: 600 !important;
   letter-spacing: -0.2px !important;
