@@ -474,3 +474,40 @@ hr {
     opacity: 0.95;
 }
 
+.back-fixed-btn {
+    position: absolute;
+    top: 172px;
+    left: calc(50% - 332px - 60px); 
+    
+    width: fit-content;
+    height: 45px;
+    padding: 0 8px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--accent) !important;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-decoration: none !important;
+}
+
+.back-fixed-btn:hover {
+    background-color: var(--surface-secondary);
+    border-color: var(--link);
+    color: var(--link) !important;
+    transform: scale(1.1);
+}
+
+@media (max-width: 960px) {
+    .back-fixed-btn {
+        left: 1rem; 
+        top: 1rem;
+        bottom: 100px;
+    }
+}
