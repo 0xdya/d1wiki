@@ -301,13 +301,13 @@ li {
     margin-right: 14px;
 }
 
-.footer-star {
+/* .footer-star {
     margin-top: var(--space-xl);
     padding: var(--space-lg);
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    /* text-align: center; */
+    text-align: center;
 }
 
 .footer-star-btns {
@@ -355,7 +355,7 @@ li {
     border-top: 1px solid var(--border);
     font-size: 1rem;
     color: var(--text-muted);
-}
+} */
 
 .divider {
     height: 1px;
@@ -364,14 +364,15 @@ li {
     margin: var(--space-xl) 0;
 }
 hr {
-    display: none;
+    /* display: none; */
     border: none;
     height: 100px; 
-    background-image: url('../img/1519276390979994806.webp');
+    max-width: 420px;
+    background-image: url('../img/1519276390979995507.webp');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    margin: 40px 0;
+    margin: 40px auto;
     opacity: 0.4;
 }
 
@@ -516,3 +517,153 @@ hr {
         bottom: 100px;
     }
 }
+
+    .wf {
+        /* font-family: 'IBM Plex Sans Arabic', sans-serif; */
+        direction: rtl;
+        max-width: 840px;
+        margin: 8rem auto 0;
+        padding: 2.5rem 0 1.75rem;
+        border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+  
+      .wf-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        margin-bottom: 2rem;
+      }
+  
+      .wf-label {
+        font-family: 'JetBrains Mono', monospace;
+        /* font-size: 10px; */
+        font-weight: 500;
+        color: #e8ff5a;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+  
+      .wf-desc {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        /* text-align: justify; */
+        color: #888;
+      }
+  
+      .wf-desc strong {
+        color: #ccc;
+        font-weight: 500;
+      }
+  
+      .wf-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+  
+      .wf-group-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem;
+        color: #444;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+  
+      .wf-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+  
+      .wf-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
+        font-size: .9rem;
+        color: #aaa;
+        background: transparent;
+        border: 0.5px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        padding: 5px 11px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.12s, color 0.12s, border-color 0.12s;
+        white-space: nowrap;
+      }
+  
+      .wf-btn:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+  
+      .wf-btn svg {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+      }
+  
+      .wf-btn-star {
+        color: #e8e8e8;
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+  
+      .wf-btn-star:hover {
+        background: #e8ff5a;
+        color: #080808;
+        border-color: #e8ff5a;
+      }
+  
+      .wf-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding-top: 1.5rem;
+        border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+      }
+  
+      .wf-credit {
+        font-size: var(--space-md);
+        color: #444;
+      }
+  
+      .wf-credit a {
+        color: #666;
+        text-decoration: none;
+        /* font-family: 'JetBrains Mono', monospace; */
+        font-size: var(--space-md);
+        transition: color 0.12s;
+      }
+  
+      .wf-credit a:hover {
+        color: #fff;
+      }
+  
+      .wf-theme {
+        font-size: 1rem;
+        padding: 4px 10px;
+        color: #555;
+        border-color: rgba(255, 255, 255, 0.07);
+      }
+  
+      .wf-theme:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.04);
+      }
+  
+      @media (max-width: 580px) {
+        .wf-main {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+        }
+  
+        .wf-links {
+          gap: 1.25rem;
+        }
+      }

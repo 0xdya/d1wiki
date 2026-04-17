@@ -1,100 +1,249 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>time-ar — d1wiki</title>
-  <meta name="author" content="0xdya">
-  <meta http-equiv="Content-Language" content="ar">
-  <link rel="icon" href="../d1logo.png" type="png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-  <link rel="stylesheet" href="../../css/style.css">
-  <style>
-      .giscus-wrapper {
-        padding: 0 !important;
-    background-color: transparent !important;
-    border: none !important;
-  }
-  .input-contrast {
-        padding: 0 !important;
-    background-color: red !important;
-    border: none !important;
-  }
-  </style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Styled Footer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+    --bg-color: #ffffff;
+    --text-color: #666666;
+    --heading-color: #000000;
+    --border-color: #eaeaea;
+    --hover-color: #000000;
+    --accent-color: #0070f3; /* Vercel Blue */
+}
 
+.dark-theme {
+    --bg-color: #000000;
+    --text-color: #888888;
+    --heading-color: #ffffff;
+    --border-color: #333333;
+    --hover-color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    transition: background 0.3s ease;
+}
+
+.site-footer {
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    padding: 60px 0 30px 0;
+    background-color: var(--bg-color);
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 0.5fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h4 {
+    color: var(--heading-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 12px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+ul li a:hover {
+    color: var(--hover-color);
+}
+
+.star-link:hover {
+    color: #f5a623 !important;
+}
+
+/* زر الثيم */
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.theme-btn:hover {
+    border-color: var(--hover-color);
+    color: var(--hover-color);
+}
+
+/* الجزء السفلي */
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.made-by {
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.made-by span {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.heart-icon {
+    color: #ff4d4d;
+    font-size: 10px;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff00;
+}
+
+.status-text {
+    font-size: 0.7rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .brand {
+        grid-column: span 2;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+    </style>
+</head>
 <body>
-    <div class="container community">
-        <a href="../" class="back-fixed-btn" aria-label="العودة">
-            رجوع
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5m7 7-7-7 7-7"/>
-            </svg>
-        </a>
-        <div class="breadcrumb">
-            <a href="../../">d1wiki</a>
-            <span>/</span>
-            <a href="../">time-ar</a>
-            <span>/</span>
-            المجتمع
-          </div>
-        <header style="margin-bottom: var(--space-xl); border-bottom: 1px solid var(--border); padding-bottom: var(--space-xs);">
-            <h1 class="article-title">🏛️ ساحة المجتمع</h1>
-            <p class="article-subtitle">هنا نناقش الأفكار، نعالج الأخطاء، ونثري الفضاء التقني العربي معاً.</p>
+
+    <footer class="site-footer">
+        <div class="footer-container">
             
-            <!-- <div class="gh-meta">
-                <span class="gh-link">
-                    <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                    نقاشات GitHub
-                </span>
-                <span>استخدم حسابك في جيت هب للمشاركة</span>
-            </div> -->
-        </header>
-    
-        <div class="note note-purple">
-            <div class="note-title">💡  ملاحظة</div>
-            <div class="note-content">
-                هذه المساحة مخصصة للجميع. يمكنك طرح التساؤلات التقنية أو اقتراح أقسام جديدة للويكي. يرجى الحفاظ على الاحترام المتبادل، وعدم الخروج عن موضوع
+            <div class="footer-grid">
+                <div class="footer-section brand">
+                    <div class="logo">
+                        <svg width="24" height="24" viewBox="0 0 76 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                            <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="currentColor"/>
+                        </svg>
+                        <span>VERCEL_OS</span>
+                    </div>
+                    <p class="description">منصة المطورين لبناء تجارب ويب مذهلة بسرعة البرق.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>المجتمع</h4>
+                    <ul>
+                        <li><a href="#">ديسكورد</a></li>
+                        <li><a href="#">تويتر (X)</a></li>
+                        <li><a href="#">المدونة</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>المشروع</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-github"></i> الكود المصدري</a></li>
+                        <li><a href="#" class="star-link"><i class="fas fa-star"></i> أعطِ نجمة</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section theme-toggle-container">
+                    <button id="theme-toggle" class="theme-btn" aria-label="تغيير الثيم">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="made-by">
+                    صُنع بكل <i class="fas fa-heart heart-icon"></i> من طرف <span>ضياء</span>
+                </div>
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">جميع الأنظمة تعمل بشكل مثالي</span>
+                </div>
             </div>
         </div>
-    
-        <div class="giscus-wrapper" style="margin-top: var(--space-xl); background: var(--surface); padding: var(--space-lg); border: 1px solid var(--border); border-radius: var(--radius);">
-            <div class="giscus"></div>
-        </div>
-    </div>
+    </footer>
+
     <script>
-      (function() {
-        const container = document.querySelector('.giscus');
-        if (!container) return;
-    
-        const script = document.createElement('script');
-        script.src = "https://giscus.app/client.js";
-        script.setAttribute('data-repo', "0xdya/timeAr");
-        script.setAttribute('data-repo-id', "R_kgDORtJ38w");
-        script.setAttribute('data-category', "General");
-        script.setAttribute('data-category-id', "DIC_kwDORtJ3884C5LLr");
-        
-        script.setAttribute('data-mapping', "specific");
-        script.setAttribute('data-term', "Community"); 
-        
-        script.setAttribute('data-strict', "1");
-        script.setAttribute('data-reactions-enabled', "0");
-        script.setAttribute('data-emit-metadata', "0");
-        script.setAttribute('data-input-position', "bottom"); 
-        
-        script.setAttribute('data-theme', "dark");
-        script.setAttribute('data-lang', "ar");
-        script.setAttribute('crossorigin', "anonymous");
-        script.async = true;
-    
-        container.appendChild(script);
-      })();
+        const themeBtn = document.getElementById('theme-toggle');
+        const icon = themeBtn.querySelector('i');
+
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
     </script>
- 
-
-  <script src="../../js/script.js"></script>
-
 </body>
-
 </html>
