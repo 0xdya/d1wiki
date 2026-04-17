@@ -1,82 +1,83 @@
 :root {
-  --color-canvas-default: transparent;
-  --color-canvas-subtle: #0d1117; 
-  --color-canvas-card: #161b22;
+    --color-canvas-default: transparent;
+    --color-canvas-subtle: #0d1117; 
+    --color-canvas-card: #161b22;
+    
+    --color-border-default: #30363d;
+    --color-border-muted: #21262d;
+    --color-border-active: #58a6ff;
+    
+    --color-fg-default: #e6edf3;
+    --color-fg-muted: #9198a1;
+    --color-fg-subtle: #7d8590;
   
-  --color-border-default: #30363d;
-  --color-border-muted: #21262d;
-  --color-border-active: #58a6ff;
+    --color-btn-bg: #f0f6fc;
+    --color-btn-text: #0d1117;
+    --color-btn-border: transparent;
+    --color-btn-hover-bg: #ffffff;
+    
+    --color-accent-fg: #2f81f7;
+  }
+  .gsc-comments {
+    background: transparent !importan;
+    border: none !important;
+    border-radius: 12px !important; 
+    padding: 12px 16px !important;
+    transition: all 0.2s ease-in-out !important;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.4) !important;
+  }
+  .gsc-comment-box {
+    background-color: transparent !importan;
+    border: none !important;
+  }
+  .giscus-wrapper {
+    background-color: none !important;
+    border: none !important;
+  }
+  .giscus-input {
+    background-color: var(--color-canvas-card) !important;
+    border: 1px solid var(--color-border-default) !important;
+    border-radius: 12px !important; 
+    padding: 12px 16px !important;
+    transition: all 0.2s ease-in-out !important;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.4) !important;
+  }
   
-  --color-fg-default: #e6edf3;
-  --color-fg-muted: #9198a1;
-  --color-fg-subtle: #7d8590;
-
-  --color-btn-bg: #f0f6fc;
-  --color-btn-text: #0d1117;
-  --color-btn-border: transparent;
-  --color-btn-hover-bg: #ffffff;
+  .giscus-input:focus {
+    border-color: var(--color-border-active) !important;
+    background-color: #0d1117 !important;
+    box-shadow: 0 0 0 3px rgba(47, 129, 247, 0.15) !important;
+    outline: none !important;
+  }
   
-  --color-accent-fg: #2f81f7;
-}
-.gsc-comments {
-  background-color: transparent !importan;
-  border: none !important;
-  border-radius: 12px !important; 
-  padding: 12px 16px !important;
-  transition: all 0.2s ease-in-out !important;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4) !important;
-}
-.gsc-comment-box {
-  background-color: transparent !importan;
-  border: none !important;
-}
-.giscus-wrapper {
-  background-color: transparent !important;
-  border: none !important;
-}
-.giscus-input {
-  background-color: var(--color-canvas-card) !important;
-  border: 1px solid var(--color-border-default) !important;
-  border-radius: 12px !important; 
-  padding: 12px 16px !important;
-  transition: all 0.2s ease-in-out !important;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4) !important;
-}
-
-.giscus-input:focus {
-  border-color: var(--color-border-active) !important;
-  background-color: #0d1117 !important;
-  box-shadow: 0 0 0 3px rgba(47, 129, 247, 0.15) !important;
-  outline: none !important;
-}
-
-.giscus-tab {
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  color: var(--color-fg-muted) !important;
-  padding: 8px 12px !important;
-  border-radius: 8px !important;
-  transition: 0.2s !important;
-}
-
-.giscus-tab[aria-selected="true"] {
-  color: var(--color-fg-default) !important;
-  background-color: var(--color-border-muted) !important;
-}
-
-.giscus-comment {
-  border: 1px solid #ffffff12 !important;
-  border-radius: 12px !important;
-  margin-bottom: 20px !important;
-  background: rgba(22, 27, 34, 0.5) !important;
-  backdrop-filter: blur(8px) !important;
-}
-
-.giscus-button-primary, .btn {
-  border: 1px solid var(--color-border-muted) !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.2px !important;
-  padding: 8px 20px !important;
-  text-transform: none !important;
-}
+  .giscus-tab {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--color-fg-muted) !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    transition: 0.2s !important;
+  }
+  
+  .giscus-tab[aria-selected="true"] {
+    color: var(--color-fg-default) !important;
+    background-color: var(--color-border-muted) !important;
+  }
+  
+  .giscus-comment {
+    border: 1px solid var(--color-border-muted) !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    background: rgba(22, 27, 34, 0.5) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+  
+  .giscus-button-primary, .btn {
+    border: 1px solid var(--color-border-muted) !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.2px !important;
+    padding: 8px 20px !important;
+    text-transform: none !important;
+  }
+  

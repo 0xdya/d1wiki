@@ -115,6 +115,10 @@ body {
     padding-top: 120px;
     padding-bottom: var(--space-xl);
 }
+.community {
+    padding-top: 42px;
+    padding-bottom: var(--space-xl);
+}
 
 .breadcrumb {
     display: flex;
@@ -432,6 +436,7 @@ hr {
     font-size: 1rem;
     line-height: 1.6;
     border-right: 4px solid;
+    display: none;
 }
 .note-purple {
     background-color: var(--note-purple-bg);

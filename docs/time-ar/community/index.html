@@ -10,10 +10,22 @@
   <link rel="icon" href="../d1logo.png" type="png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <link rel="stylesheet" href="../../css/style.css">
+  <style>
+      .giscus-wrapper {
+        padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+  .input-contrast {
+        padding: 0 !important;
+    background-color: red !important;
+    border: none !important;
+  }
+  </style>
 </head>
 
 <body>
-    <div class="container content">
+    <div class="container community">
         <a href="../" class="back-fixed-btn" aria-label="العودة">
             رجوع
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -71,7 +83,7 @@
         script.setAttribute('data-emit-metadata', "0");
         script.setAttribute('data-input-position', "bottom"); 
         
-        script.setAttribute('data-theme', "https://0xdya.github.io/d1wiki/css/giscus-theme.css");
+        script.setAttribute('data-theme', "dark");
         script.setAttribute('data-lang', "ar");
         script.setAttribute('crossorigin', "anonymous");
         script.async = true;
