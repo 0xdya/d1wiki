@@ -87,16 +87,17 @@
   .articles { display: grid; gap: 24px; }
   
   .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      background: transparent;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
       padding: 24px;
-      transition: transform var(--transition), border-color var(--transition);
-  }
-  
-  .card:hover {
+      transition: all var(--transition);
+    }
+    
+    .card:hover {
       /* transform: translateY(-2px); */
       border-color: var(--border-hover);
+      border: 1px solid var(--border);
   }
   
   .card-header {
@@ -109,7 +110,7 @@
   }
   
   .card h2 { 
-      font-size: 1.5rem; 
+      font-size: 1.6rem; 
       margin: 0; 
       color: var(--accent);
       font-weight: 800;
@@ -129,7 +130,7 @@
   }
   
   .card p {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: var(--text-main);
       margin-bottom: 20px;
       opacity: 0.9;
